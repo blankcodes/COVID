@@ -2,17 +2,42 @@
 var base_url;
 var country;
 
+getAPIData(country);
+chartData();
 
-// chartData();
-function showCurrentData(){
+function getAPIData(country){
+    // $("#loader").modal('toggle');
     $.ajax({
-        url: base_url+ 'api/v1/covid/get-current-stat',
+        url: base_url+ 'api/v1/covid/get-api-data',
         type: 'GET',
         dataType: 'JSON',
+        data: {country:country}
     })
     .done(function(data){
-        
-    })
+        $('#confirmed_cases span').html(data.cases);
+        $('#recovered_cases span').text(data.recovered);
+        $('#deaths_cases span').text(data.deaths);
+        $('#closed_cases').text(data.closeCases);
+
+        $('#_recovered_cases').html('<i class="text-success fa fa-circle font-sm"></i> '+data.recovered);
+        $('#__recovered_cases').attr('style', 'width: '+data.recoverCasesPercent+'%').attr('aria-valuenow', data.recoverCasesPercent);
+        $('#recovered_percent_cases_sub').html('('+data.recoverCasesPercent+'%)');
+
+        $('#_death_cases').html('<i class="text-danger fa fa-circle font-sm"></i> '+data.deaths);
+        $('#__death_cases').attr({'style':'width: '+data.deathsCasesPercent+'%', 'aria-valuenow':data.deathsCasesPercent});
+        $('#deaths_percent_cases_sub').text('('+data.deathsCasesPercent+'%)');
+        $('#_active_cases').text(data.activeCases);
+
+        $('#_mild_cases').html('<i class="text-primary fa fa-circle font-sm"></i> '+data.mildCases);
+        $('#mild_percent_cases_sub').html('('+data.mildCasesCasesPercent+'%)');
+        $('#__mild_cases').attr('style', 'width: '+data.mildCasesCasesPercent+'%').attr('aria-valuenow', data.mildCasesCasesPercent);
+
+        $('#critical').html('<i class="text-danger fa fa-circle font-sm"></i> '+data.critical);
+        $('#critical_percent_cases_sub').html('('+data.criticalCasesCasesPercent+'%)');
+        $('#__critical').attr({'style':'width: '+data.criticalCasesCasesPercent+'%', 'aria-valuenow':data.criticalCasesCasesPercent});
+
+        // $("#loader").modal('hide');
+    });
 }
 
 function chartData(){
@@ -23,8 +48,8 @@ function chartData(){
     })
     .done(function(data){
         if(data.country == country){
-            for(i in data){
-                console.log(data[i].country);
+            for(var i in data.country){
+                console.log(data[i].timeline);
             }
         }
         

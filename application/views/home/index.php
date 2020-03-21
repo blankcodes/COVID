@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Monitor COVID-19 Updates</title>
+    <title>COVID-19 Updates</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="getInfo COVID-19 updates">
@@ -32,13 +32,18 @@
         </div>
 
         <div class="row element-row-main margin-top-50">
-            <div class="col-lg-4">
+            <div class="col-lg-4 ">
                 <div class="element-column-wrap">
                     <div class="title">
-                        Currently Infected Patients
+                        Confirmed Infected Patients
                     </div>
-                    <div class="text-warning" id="active_cases">
-                        <span class="element-info"><?= $getInfo['activeCases']; ?></span>
+                    <div class="text-warning" id="confirmed_cases">
+                        <span class="element-info">
+                            <div class="preload-data">
+                                <div class="_preload-data"></div>
+                                <div class="__preload-data"></div>
+                            </div>
+                        </span>
                     </div>
 
                     <div class="icons text-warning badge-light-warning icon-badge">
@@ -47,13 +52,18 @@
                 </div>
             </div>
 
-            <div class=" col-lg-4">
+            <div class="col-lg-4">
                 <div class="element-column-wrap">
                     <div class="title">
                         Recovered
                     </div>
                     <div class="element-info text-success"  id="recovered_cases">
-                        <?= $getInfo['recovered']; ?>
+                        <span class="element-info">
+                            <div class="preload-data">
+                                <div class="_preload-data"></div>
+                                <div class="__preload-data"></div>
+                            </div>    
+                        </span>
                     </div>
                     <div class="icons text-success badge-light-success icon-badge">
                         <i class="fas fa-stethoscope"></i>
@@ -67,7 +77,12 @@
                         Deaths
                     </div>
                     <div class="element-info text-danger"  id="deaths_cases">
-                    <?= $getInfo['deaths']; ?>
+                        <span class="element-info">
+                            <div class="preload-data">
+                                <div class="_preload-data"></div>
+                                <div class="__preload-data"></div>
+                            </div>
+                        </span>
                     </div>
                     <div class="icons text-danger badge-light-danger icon-badge">
                         <i class="fas fa-skull"></i>
@@ -75,20 +90,27 @@
                 </div>
             </div>
 
-            <div class="col-lg-7">
+            <div class="col-lg-7 pull-right">
                 <div class="row">
-                    <div class="element-column-wrap">
-                        <div class="title">
-                            Chart
-                        </div>
-                        <div class="">
-                        <canvas id="myChart" width="400" height="400"></canvas>
+                    <div class="col-lg-12">
+                        <div class="element-column-wrap">
+                            <div class="title">
+                                Chart
+                            </div>
+                            <div class="">
+                                <canvas id="myChart" width="400" height="400">
+                                <div class="preload-data">
+                                    <div class="_preload-data"></div>
+                                    <div class="__preload-data"></div>
+                                </div>
+                                </canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-           <div class="col-lg-5">
+           <div class="col-lg-5 pull-left">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="element-column-wrap">
@@ -96,15 +118,21 @@
                                 <div class="title">
                                     Closed Cases <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="Closed cases which had on outcome"><i class="fas fa-question-circle font-sm"></i></span>
                                 </div>
-                                <div class="element-info-right" id="confirmed_cases">
-                                    <?= $getInfo['closeCases'] ?>
+                                <div class="element-info-right" id="closed_cases">
+                                    0
                                 </div>
                             </div>
 
                             <div class="row margin-top-20">
                                 <div class="col-lg-6">
-                                    <div class=" close-case-percent">
-                                        <i class="text-success fa fa-circle font-sm"></i> <?= $getInfo['recovered']?> <span class="sub-percent-cases">(<?= $getInfo['recoverCasesPercent'].'%'?>)</span>
+                                    <div class="close-case-percent" >
+                                        <span id="_recovered_cases">
+                                            <div class="preload-data">
+                                                <div class="_preload-data"></div>
+                                                <div class="__preload-data"></div>
+                                            </div>
+                                        </span>
+                                        <span class="sub-percent-cases" id="recovered_percent_cases_sub"></span>
                                     </div>
                                     <div>
                                         Recovered
@@ -112,8 +140,14 @@
                                 </div>
 
                                 <div class="col-lg-6">
-                                    <div class="close-case-percent ">
-                                    <i class="text-danger fa fa-circle font-sm"></i> <?= $getInfo['deaths']?> <span class="sub-percent-cases">(<?= $getInfo['deathsCasesPercent'].'%'?>)</span>
+                                    <div class="close-case-percent" >
+                                        <span id="_death_cases">
+                                        <div class="preload-data">
+                                            <div class="_preload-data"></div>
+                                            <div class="__preload-data"></div>
+                                        </div>
+                                        </span>
+                                        <span class="sub-percent-cases" id="deaths_percent_cases_sub"></span>
                                     </div>
                                     <div>
                                         Deaths
@@ -122,9 +156,9 @@
 
                                 <div class="col-lg-12 margin-top-10">
                                     <div class="progress close-cases-progress">
-                                        <div class="progress-bar progress-bar-case bg-success" role="progressbar" style="width: <?= $getInfo['recoverCasesPercent']?>%" aria-valuenow="<?= $getInfo['recoverCasesPercent']?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar progress-bar-case bg-success" id="__recovered_cases" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                         <div style="margin-right: 5px;"></div>
-                                        <div class="progress-bar progress-bar-case bg-danger" role="progressbar" style="width: <?= $getInfo['deathsCasesPercent']?>%" aria-valuenow="<?= $getInfo['deathsCasesPercent']?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar progress-bar-case bg-danger" id="__death_cases" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>
@@ -139,17 +173,23 @@
                         <div class="element-column-wrap">
                             <div>
                                 <div class="title">
-                                    Active Cases <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="Current active Cases which had on outcome"><i class="fas fa-question-circle font-sm"></i></span>
+                                    Active Cases <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="Currently infected patients which had on outcome"><i class="fas fa-question-circle font-sm"></i></span>
                                 </div>
-                                <div class="element-info-right" id="confirmed_cases">
-                                    <?= $getInfo['activeCases'] ?>
+                                <div class="element-info-right" id="_active_cases">
+                                    0
                                 </div>
                             </div>
 
                             <div class="row margin-top-20">
                                 <div class="col-lg-6">
                                     <div class=" close-case-percent">
-                                        <i class="text-warning fa fa-circle font-sm"></i> <?= $getInfo['mildCases']?> <span class="sub-percent-cases">(<?= $getInfo['mildCasesCasesPercent'].'%'?>)</span>
+                                        <span id="_mild_cases">
+                                            <div class="preload-data">
+                                                <div class="_preload-data"></div>
+                                                <div class="__preload-data"></div>
+                                            </div>
+                                        </span>
+                                        <span class="sub-percent-cases" id="mild_percent_cases_sub"></span>
                                     </div>
                                     <div>
                                         Mild Condition
@@ -158,7 +198,13 @@
 
                                 <div class="col-lg-6">
                                     <div class="close-case-percent ">
-                                    <i class="text-danger fa fa-circle font-sm"></i> <?= $getInfo['critical']?> <span class="sub-percent-cases">(<?= $getInfo['criticalCasesCasesPercent'].'%'?>)</span>
+                                        <span id="critical">
+                                            <div class="preload-data">
+                                                <div class="_preload-data"></div>
+                                                <div class="__preload-data"></div>
+                                            </div>
+                                        </span>
+                                        <span class="sub-percent-cases" id="critical_percent_cases_sub"></span>
                                     </div>
                                     <div>
                                         Serious or Critical
@@ -167,8 +213,8 @@
 
                                 <div class="col-lg-12 margin-top-10">
                                     <div class="progress close-cases-progress">
-                                        <div class="progress-bar progress-bar-case bg-warning" role="progressbar" style="width: <?= $getInfo['mildCasesCasesPercent']?>%" aria-valuenow="<?= $getInfo['mildCasesCasesPercent']?>" aria-valuemin="0" aria-valuemax="100"></div>
-                                        <div class="progress-bar progress-bar-case bg-danger" role="progressbar" style="width: <?= $getInfo['criticalCasesCasesPercent']?>%" aria-valuenow="<?= $getInfo['criticalCasesCasesPercent']?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar progress-bar-case bg-primary" id="__mild_cases" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar progress-bar-case bg-danger" id="__critical" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>
@@ -181,18 +227,4 @@
 
         
     </div>
-<!-- Scripts -->
-<script src="<?=base_url('assets/js/jquery-3.4.1.min.js')?>"></script>
-<script>
-	var base_url = '<?=base_url()?>';	
-    var country = 'Philippines';
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-</script>
-<script src="<?=base_url('assets/bootstrap4/popper.js')?>"></script>
-<script src="<?=base_url('assets/bootstrap4/bootstrap.min.js')?>"></script>
-<script src="<?=base_url('assets/js/chart.min.js')?>"></script>
-<script src="<?=base_url('assets/js/historical_data.js')?>"></script>
-</body>
-</html>
+

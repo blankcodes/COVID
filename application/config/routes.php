@@ -50,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['api/v1/covid/get-historical-data'] = 'home/getHistoricalData';
+$route['api/v1/covid/get-api-data'] = 'home/getAPIData';
 
 
 $route['default_controller'] = 'home';

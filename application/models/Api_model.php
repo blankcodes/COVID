@@ -2,11 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Api_model extends CI_Model {
-    public function getUpdates(){
-        $url = 'https://corona.lmao.ninja/countries/philippines';
+    public function getAPIData(){
+        $countryInput = $this->input->get('country');
+        $url = 'https://corona.lmao.ninja/countries/'.$countryInput;
         $data = json_decode(file_get_contents($url, false));
         
-        $info = array(
+        $dataInfo = array(
             'country'=>$data->country,
             'cases'=>$data->cases,
             'todayCases'=>$data->todayCases,
@@ -20,16 +21,17 @@ class Api_model extends CI_Model {
         );
         $closeCases = $data->recovered + $data->deaths;
         $activeCases = $data->cases - $data->recovered - $data->deaths;
-        $info['mildCases'] = $activeCases - $data->critical;
+        $dataInfo['mildCases'] = $activeCases - $data->critical;
 
-        $info['mildCasesCasesPercent'] = round( $info['mildCases'] / $activeCases * 100, 2);
-        $info['criticalCasesCasesPercent'] = round( $data->critical / $activeCases * 100, 2);
+        $dataInfo['mildCasesCasesPercent'] = round( $dataInfo['mildCases'] / $activeCases * 100, 2);
+        $dataInfo['criticalCasesCasesPercent'] = round( $data->critical / $activeCases * 100, 2);
 
-        $info['recoverCasesPercent'] = round( $data->recovered / $closeCases * 100, 2);
-        $info['deathsCasesPercent'] = round( $data->deaths / $closeCases * 100, 2);
+        $dataInfo['recoverCasesPercent'] = round( $data->recovered / $closeCases * 100, 2);
+        $dataInfo['deathsCasesPercent'] = round( $data->deaths / $closeCases * 100, 2);
 
-        
-        return $info;
+        // return $dataInfo;
+        $this->output->set_content_type('application/json')->set_output(json_encode($dataInfo));
+
     }
     public function getHistoricalData(){
         $url = 'https://corona.lmao.ninja/historical';
