@@ -94,16 +94,23 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="element-column-wrap">
-                            <div class="title">
-                                Chart
+                            <div class="title chart-title">
+                                Chart Statistics
                             </div>
-                            <div class="">
-                                <canvas id="myChart" width="400" height="400">
-                                <div class="preload-data">
-                                    <div class="_preload-data"></div>
-                                    <div class="__preload-data"></div>
-                                </div>
-                                </canvas>
+                            <div class="icons-tab-btn">
+                                <button class="btn btn-dark btn-sm" id="number_cases_stat"><i class="fas fa-users"></i></button>
+                                <button class="btn btn-dark btn-sm" id="number_recovered_stat"><i class="fas fa-heartbeat"></i></button>
+                                <button class="btn btn-dark btn-sm" id="number_death_stat"><i class="fas fa-skull"></i></button>
+                            </div>
+                            <div class="preload-data margin-top-20" id="preload_data" hidden="hidden">
+                                <div class="__preload-data"></div>
+                                <div class="___preload-data"></div>
+                                <div class="_preload-data"></div>
+                            </div>  
+                            <div id="chart_wrapper">
+                                <canvas id="confirmedCaseChart" width="400" height="280"></canvas>
+                                <canvas id="deathCaseChart" width="400" height="280"></canvas>
+                                <canvas id="recoveredCaseChart" width="400" height="280"></canvas>
                             </div>
                         </div>
                     </div>

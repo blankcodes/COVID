@@ -2,8 +2,17 @@
 var base_url;
 var country;
 
+$("#number_cases_stat").on('click', function(){
+    confirmedCases();
+})
+$("#number_recovered_stat").on('click', function(){
+    recoveredCases();
+})
+$("#number_death_stat").on('click', function(){
+    deathCases();
+})
 getAPIData(country);
-chartData();
+confirmedCases();
 
 function getAPIData(country){
     // $("#loader").modal('toggle');
@@ -40,56 +49,147 @@ function getAPIData(country){
     });
 }
 
-function chartData(){
+function confirmedCases(){
+    $("#chart_wrapper").attr('hidden', 'hidden');
+    $("#confirmedCaseChart").removeAttr('hidden');
+    $("#preload_data").removeAttr('hidden')
     $.ajax({
         url: base_url+ 'api/v1/covid/get-historical-data',
         type: 'GET',
         dataType: 'JSON',
     })
     .done(function(data){
-        if(data.country == country){
-            for(var i in data.country){
-                console.log(data[i].timeline);
+        $("#deathCaseChart").attr('hidden','hidden');
+        $("#recoveredCaseChart").attr('hidden','hidden');
+        for(var i in data){
+            if(data[i].country == 'Philippines'){
+
+                timelineCases = data[i].timeline.cases;
+                dateCases = Object.keys(timelineCases);
+                numberCases = Object.values(timelineCases);
+
+                var chart = $('#confirmedCaseChart');
+                var myChart = new Chart(chart, {
+                    type: 'line',
+                    data: {
+                        labels: dateCases,
+                        datasets: [{
+                            label: 'Number of Confirmed Cases',
+                            data: numberCases,
+                            backgroundColor: '#ffc107',
+                            borderColor: '#ffc107',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
             }
         }
-        
+        $("#preload_data").attr('hidden', 'hidden');
+        $("#chart_wrapper").removeAttr('hidden')
+    })
+}
+function deathCases(){
+    $("#chart_wrapper").attr('hidden', 'hidden');
+    $("#preload_data").removeAttr('hidden')
+    $("#deathCaseChart").removeAttr('hidden');
+    $.ajax({
+        url: base_url+ 'api/v1/covid/get-historical-data-deaths',
+        type: 'GET',
+        dataType: 'JSON',
+    })
+    .done(function(data){
+        $("#confirmedCaseChart").attr('hidden','hidden');
+        $("#recoveredCaseChart").attr('hidden','hidden');
+        for(var i in data){
+            if(data[i].country == 'Philippines'){
+
+                timelineDeaths = data[i].timeline.deaths;
+                dateDeaths = Object.keys(timelineDeaths);
+                numberDeaths = Object.values(timelineDeaths);
+
+                var chart = $('#deathCaseChart');
+                var myChart = new Chart(chart, {
+                    type: 'line',
+                    data: {
+                        labels: dateDeaths,
+                        datasets: [{
+                            label: 'Number of Death Cases',
+                            data: numberDeaths,
+                            backgroundColor: '#ff5252',
+                            borderColor: '#ff5252',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            }
+        }
+        $("#preload_data").attr('hidden', 'hidden');
+        $("#chart_wrapper").removeAttr('hidden')
     })
 }
 
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
+function recoveredCases(){
+    $("#preload_data").removeAttr('hidden')
+    $("#chart_wrapper").attr('hidden', 'hidden');
+    $("#recoveredCaseChart").removeAttr('hidden');
+    $.ajax({
+        url: base_url+ 'api/v1/covid/get-historical-data',
+        type: 'GET',
+        dataType: 'JSON',
+    })
+    .done(function(data){
+        $("#confirmedCaseChart").attr('hidden','hidden');
+        $("#deathCaseChart").attr('hidden','hidden');
+        for(var i in data){
+            if(data[i].country == 'Philippines'){
+                timelineRecover = data[i].timeline.recovered;
+                dateRecover = Object.keys(timelineRecover);
+                numberecover = Object.values(timelineRecover);
+
+                var chart = $('#recoveredCaseChart');
+                var myChart = new Chart(chart, {
+                    type: 'line',
+                    data: {
+                        labels: dateRecover,
+                        datasets: [{
+                            label: 'Number of Recovered Cases',
+                            data: numberecover,
+                            backgroundColor: '#11c15b',
+                            borderColor: '#11c15b',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            }
         }
-    }
-});
+        $("#preload_data").attr('hidden', 'hidden');
+        $("#chart_wrapper").removeAttr('hidden')
+    })
+}

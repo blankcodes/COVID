@@ -17,5 +17,8 @@ class Home extends CI_Controller {
     public function getAPIData(){
         $this->Api_model->getAPIData();
     }
+    public function getHistoricalDataDeaths(){
+        $this->Api_model->getHistoricalDataDeaths();
+    }
     
 }   

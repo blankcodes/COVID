@@ -36,6 +36,30 @@ class Api_model extends CI_Model {
     public function getHistoricalData(){
         $url = 'https://corona.lmao.ninja/historical';
         $data = json_decode(file_get_contents($url, false));
-        $this->output->set_content_type('application/json')->set_output(json_encode($data));
+        $dataInfo = array();
+        foreach($data as $d){
+            $array = array(
+               'country'=>$d->country,
+               'timeline'=>$d->timeline,
+            );
+            array_push($dataInfo, $array); 
+        }
+
+        $this->output->set_content_type('application/json')->set_output(json_encode($dataInfo));
+    }
+
+    function getHistoricalDataDeaths(){
+        $url = 'https://corona.lmao.ninja/historical';
+        $data = json_decode(file_get_contents($url, false));
+        $dataInfo = array();
+        foreach($data as $d){
+            $array = array(
+               'country'=>$d->country,
+               'timeline'=>$d->timeline,
+            );
+            array_push($dataInfo, $array); 
+        }
+
+        $this->output->set_content_type('application/json')->set_output(json_encode($dataInfo));
     }
 }

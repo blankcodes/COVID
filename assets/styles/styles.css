@@ -5,6 +5,12 @@ body {
     font-family: Mada, sans-serif;
     color: #7e86a1;
 }
+a{
+    color: #7e86a1;
+}
+a:hover{
+    color: #97a0c0;
+}
 .margin-top-0 {
     margin-top: 0px !important;
 }
@@ -128,6 +134,9 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,.03);
     border-radius: 4px;
 }
+.chart-title{
+    font-size: 15pt;
+}
 .margin-left--10{
     margin-left: -10px;
 }
@@ -229,7 +238,7 @@ background-color: transparent !important;
     bottom:0;
     background-color: #1e1e1e;;
     color: #fff;
-    height: 120px;
+    height: 100px;
     padding: 10px 15px;
 }
 /* show while data is not loaded */
@@ -249,12 +258,24 @@ background-color: transparent !important;
     border-radius: 8px;
     height: 10px;
     width: 50%;
-    margin-top:-5px;
+}
+.___preload-data{
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    background-color:#464545;
+    border-radius: 8px;
+    height: 10px;
+    width: 40%;
+    margin-bottom: -4px;
 }
 ._preload-data:active:after {
     opacity: 0;
 }
 .__preload-data:active:after {
+    opacity: 0;
+}
+.___preload-data:active:after {
     opacity: 0;
 }
 ._preload-data:after {
@@ -299,6 +320,27 @@ background-color: transparent !important;
       rgba(255, 255, 255, 0.0) 100%
     );
 }
+.___preload-data:after {
+    animation: shine 3s ease-in-out  infinite;
+    animation-fill-mode: forwards;  
+    content: "";
+    position: absolute;
+    top: -110%;
+    left: -200%;
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+    transform: rotate(0deg);
+    
+    background: rgba(255, 255, 255, 0.13);
+    background: linear-gradient(
+      to right, 
+      rgba(255, 255, 255, 0.23) 0%,
+      rgba(255, 255, 255, 0.23) 77%,
+      rgba(255, 255, 255, 0.5) 92%,
+      rgba(255, 255, 255, 0.0) 100%
+    );
+}
 @keyframes shine{
     10% {
       opacity: 1;
@@ -316,3 +358,8 @@ background-color: transparent !important;
     }
 }
 /* end while data is not loaded */
+.icons-tab-btn{
+    position: absolute;
+    right: 40px;
+    top: 40px;
+}

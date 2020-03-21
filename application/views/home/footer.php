@@ -4,10 +4,16 @@
         </div>
     </div>
 
+    <div class="container margin-bottom-30 margin-top-20">
+        Reference: <a target="_blank" rel="noopener noreferrer" href="https://github.com/NovelCOVID/API">NovelCOVID</a> | 
+        Source: <a target="_blank" rel="noopener noreferrer" href="https://www.worldometers.info/coronavirus/">Worldometers</a> |  
+        Developer: <a target="_blank" rel="noopener noreferrer" href="https://kenkarlo.com">Ken Karlo</a>
+    </div>
     <footer class="footer">
-        <div class="container">
-            <div class="text-right margin-top-30">
-            Reference: <a target="_blank" rel="noopener noreferrer" href="https://github.com/NovelCOVID/API">NovelCOVID</a>
+        <div class="container ">
+            <div class="text-center margin-top-30">
+            Philippines COVID-19 Monitor Updates. &copy; 2020
+            
             </div>
         </div>
     </footer>
