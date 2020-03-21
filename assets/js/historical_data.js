@@ -1,7 +1,20 @@
 	
 var base_url;
+var country;
 
-chartData();
+
+// chartData();
+function showCurrentData(){
+    $.ajax({
+        url: base_url+ 'api/v1/covid/get-current-stat',
+        type: 'GET',
+        dataType: 'JSON',
+    })
+    .done(function(data){
+        
+    })
+}
+
 function chartData(){
     $.ajax({
         url: base_url+ 'api/v1/covid/get-historical-data',
@@ -9,9 +22,15 @@ function chartData(){
         dataType: 'JSON',
     })
     .done(function(data){
-
+        if(data.country == country){
+            for(i in data){
+                console.log(data[i].country);
+            }
+        }
+        
     })
 }
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',

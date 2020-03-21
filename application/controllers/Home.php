@@ -9,6 +9,7 @@ class Home extends CI_Controller {
 	public function index() {   
         $data['getInfo'] = $this->Api_model->getUpdates();
 		$this->load->view('home/index', $data);
+		$this->load->view('home/footer');
     }
     public function getHistoricalData(){
         $this->Api_model->getHistoricalData();
