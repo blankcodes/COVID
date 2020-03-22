@@ -7,7 +7,7 @@
     <title>COVID-19 Updates</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="getInfo COVID-19 updates">
+    <meta name="description" content="Track and monitor COVID-19 Updates in the Philippines">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#000" />
 
@@ -17,6 +17,14 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="<?=base_url()?>assets/img/cover-featured.jpg" />
     <meta property="og:description" content="Track and monitor COVID-19 Updates in the Philippines" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@kensdigest>">
+    <meta name="twitter:creator" content="@kensdigest">
+    <meta name="twitter:title" content="Philippines COVID-19 Updates">
+    <meta name="twitter:description" content="<?=base_url()?>assets/img/cover-featured.jpg">
+    <meta name="twitter:image" content="<?=base_url()?>assets/img/cover-featured.jpg">
 
     <!-- Plugin Links -->
     <link rel="shortcut icon" href="<?=base_url('assets/img/logo.png')?>">
