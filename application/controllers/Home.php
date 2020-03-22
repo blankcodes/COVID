@@ -20,5 +20,11 @@ class Home extends CI_Controller {
     public function getHistoricalDataDeaths(){
         $this->Api_model->getHistoricalDataDeaths();
     }
+    public function getRssFeed(){
+        $this->Api_model->getRssFeed();
+    }
+    public function webScrap(){
+        $this->Api_model->webScrap();
+    }
     
 }   

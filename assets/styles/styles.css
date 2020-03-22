@@ -238,7 +238,7 @@ background-color: transparent !important;
         width: 30px;
     }
     #mobile-view {
-        display: hidden;
+        display: none;
     }
 }
 .footer{

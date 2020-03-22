@@ -15,6 +15,7 @@
     <meta property="fb:app_id" content="576747789395855" />
     <meta property="og:title" content="Philippines COVID-19 Updates" />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="<?=base_url()?>" />
     <meta property="og:image" content="<?=base_url()?>assets/img/cover-featured.jpg" />
     <meta property="og:description" content="Track and monitor COVID-19 Updates in the Philippines" />
 
@@ -34,12 +35,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 </head>
 <body>
-    <div class="container margin-top-50">
+    <div class="container margin-top-30">
         <div class="text-center">
-            <h1 class="element-heading-title">Philippines COVID-19 Updates</h1>
+            <!-- <h1 class="element-heading-title">Philippines COVID-19 Updates</h1> -->
+            <img class="img-fluid" draggable="false" alt="Philippines COVID-19 Updates" src="<?=base_url('assets/img/title-cover.jpg')?>">
         </div>
 
-        <div class="row element-row-main margin-top-50">
+        <div class="row element-row-main margin-top-20">
             <div class="col-lg-4 ">
                 <div class="element-column-wrap">
                     <div class="title">
