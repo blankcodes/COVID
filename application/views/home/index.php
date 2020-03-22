@@ -28,7 +28,7 @@
 <body>
     <div class="container margin-top-50">
         <div class="text-center">
-            <h1 class="element-heading-title">Philippines COVID-19 Monitor Updates</h1>
+            <h1 class="element-heading-title">Philippines COVID-19 Updates</h1>
         </div>
 
         <div class="row element-row-main margin-top-50">
@@ -130,34 +130,37 @@
                                 </div>
                             </div>
 
-                            <div class="row margin-top-20">
-                                <div class="col-lg-6">
-                                    <div class="close-case-percent" >
-                                        <span id="_recovered_cases">
+                            <div class=" margin-top-20">
+                                <canvas id="_close_cases_chart" width="400" height="180"></canvas>
+                                <div id="close_cases_wrapper" class="row">
+                                    <div class="col-lg-6">
+                                        <div class="close-case-percent" >
+                                            <span id="_recovered_cases">
+                                                <div class="preload-data">
+                                                    <div class="_preload-data"></div>
+                                                    <div class="__preload-data"></div>
+                                                </div>
+                                            </span>
+                                            <span class="sub-percent-cases" id="recovered_percent_cases_sub"></span>
+                                        </div>
+                                        <div>
+                                            Recovered
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="close-case-percent" >
+                                            <span id="_death_cases">
                                             <div class="preload-data">
                                                 <div class="_preload-data"></div>
                                                 <div class="__preload-data"></div>
                                             </div>
-                                        </span>
-                                        <span class="sub-percent-cases" id="recovered_percent_cases_sub"></span>
-                                    </div>
-                                    <div>
-                                        Recovered
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="close-case-percent" >
-                                        <span id="_death_cases">
-                                        <div class="preload-data">
-                                            <div class="_preload-data"></div>
-                                            <div class="__preload-data"></div>
+                                            </span>
+                                            <span class="sub-percent-cases" id="deaths_percent_cases_sub"></span>
                                         </div>
-                                        </span>
-                                        <span class="sub-percent-cases" id="deaths_percent_cases_sub"></span>
-                                    </div>
-                                    <div>
-                                        Deaths
+                                        <div>
+                                            Deaths
+                                        </div>
                                     </div>
                                 </div>
 
@@ -167,6 +170,10 @@
                                         <div style="margin-right: 5px;"></div>
                                         <div class="progress-bar progress-bar-case bg-danger" id="__death_cases" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
+                                </div>
+
+                                <div class="col-lg-12 margin-top-10 text-center">
+                                    <span class="font-11"><a id="show_close_case" href="#show_chart">Show Chart</a></span>
                                 </div>
                             </div>
                             
@@ -224,6 +231,11 @@
                                         <div class="progress-bar progress-bar-case bg-danger" id="__critical" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
+
+                                <div class="col-lg-12 margin-top-10 text-center">
+                                    <span class="font-11"><a id="show_active_case" href="#show_chart">Show Chart</a></span>
+                                </div>
+
                             </div>
                             
                         </div>

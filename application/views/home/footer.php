@@ -12,8 +12,7 @@
     <footer class="footer">
         <div class="container ">
             <div class="text-center margin-top-30">
-            Philippines COVID-19 Monitor Updates. &copy; 2020
-            
+                Philippines COVID-19 Updates. &copy; <?=date('Y')?>
             </div>
         </div>
     </footer>
@@ -31,6 +30,7 @@
     <script src="<?=base_url('assets/bootstrap4/bootstrap.min.js')?>"></script>
     <script src="<?=base_url('assets/js/chart.min.js')?>"></script>
     <script src="<?=base_url('assets/js/historical_data.js')?>"></script>
+    
 
 </body>
 </html>

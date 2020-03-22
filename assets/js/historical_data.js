@@ -11,6 +11,11 @@ $("#number_recovered_stat").on('click', function(){
 $("#number_death_stat").on('click', function(){
     deathCases();
 })
+$("#show_close_case").on('click', function(){
+    closeCasesChart();
+})
+$("#_close_cases_chart").attr('hidden', 'hidden');
+
 getAPIData(country);
 confirmedCases();
 
@@ -102,7 +107,7 @@ function deathCases(){
     $("#preload_data").removeAttr('hidden')
     $("#deathCaseChart").removeAttr('hidden');
     $.ajax({
-        url: base_url+ 'api/v1/covid/get-historical-data-deaths',
+        url: base_url+ 'api/v1/covid/get-historical-data',
         type: 'GET',
         dataType: 'JSON',
     })
@@ -192,4 +197,62 @@ function recoveredCases(){
         $("#preload_data").attr('hidden', 'hidden');
         $("#chart_wrapper").removeAttr('hidden')
     })
+}
+function closeCasesChart(){
+    $.ajax({
+        url: base_url+ 'api/v1/covid/get-historical-data',
+        type: 'GET',
+        dataType: 'JSON',
+    })
+    .done(function(data){
+        $('#close_cases_wrapper').attr('hidden', 'hidden');
+        for(var i in data){
+            if(data[i].country == 'Philippines'){
+                timelineRecover = data[i].timeline.recovered;
+                dateRecover = Object.keys(timelineRecover);
+                numberecover = Object.values(timelineRecover);
+
+                var chart = $('#_close_cases_chart');
+                var myChart = new Chart(chart, {
+                    type: 'line',
+                    data: {
+                        labels: dateRecover,
+                        datasets: [{
+                            label: 'Number of Recovered Cases',
+                            data: numberecover,
+                            backgroundColor: '#11c15b',
+                            borderColor: '#11c15b',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            }
+        }
+
+    })
+}
+// rssFeed();
+function rssFeed(){
+    
+    const FEED_URL = `https://kenkarlo.com./category/seo`;
+    header('Content-Type:text/json');
+    $.get(FEED_URL, function (data) {
+        $(data).find("item").each(function () { // or "item" or whatever suits your feed
+            var el = $(this);
+    
+            console.log("------------------------");
+            console.log("title      : " + el.find("title").text());
+            console.log("author     : " + el.find("author").text());
+            console.log("description: " + el.find("description").text());
+        });
+    });
 }
