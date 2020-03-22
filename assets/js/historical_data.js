@@ -285,7 +285,13 @@ function getRssFeed(){
         dataType: 'JSON',
     })
     .done(function(data){ 
-
+        if (data.length > 0){
+            string = '';
+            for(var x in data.slice(0, 15)){
+                string+='<a href="'+data[x].url+'" target="_blank" rel="noopener nofollow"><h5 class="font-11">'+data[x].title+' <i class="fa fa-external-link-alt font-xs"></i></h5> </a>'
+            }
+            $("#latest-news-wrapper").html(string);
+        }
     })
 }
 
