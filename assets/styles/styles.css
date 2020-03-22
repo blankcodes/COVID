@@ -188,6 +188,12 @@ a:hover{
 .font-sm{
     font-size: 9.5pt;
 }
+.font-xs{
+    font-size: 9pt;
+}
+.font-md{
+    font-size: 12pt;
+}
 .font-11{
     font-size: 11pt; 
 }
@@ -385,4 +391,9 @@ background-color: transparent !important;
 }
 .btn-share-wrapper{
     display: inline !important;
+}
+.news-pointer{
+    position: absolute;
+    right: 40px;
+    top: 40px;
 }

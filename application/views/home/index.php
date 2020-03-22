@@ -124,16 +124,17 @@
                                 <div class="_preload-data"></div>
                             </div>  
                             <div id="chart_wrapper">
-                                <canvas id="confirmedCaseChart" width="400" height="280"></canvas>
-                                <canvas id="deathCaseChart" width="400" height="280"></canvas>
-                                <canvas id="recoveredCaseChart" width="400" height="280"></canvas>
+                                <canvas id="confirmedCaseChart" width="400" height="232"></canvas>
+                                <canvas id="deathCaseChart" width="400" height="232"></canvas>
+                                <canvas id="recoveredCaseChart" width="400" height="232"></canvas>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-           <div class="col-lg-5 pull-left">
+
+            <div class="col-lg-5 pull-left">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="element-column-wrap">
@@ -251,29 +252,42 @@
                                         <div class="progress-bar progress-bar-case bg-danger" id="__critical" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
-
-
                             </div>
-                            
                         </div>
                     </div>
                 </div>
+            </div>
 
+
+            <div class="col-lg-7 pull-right">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="element-column-wrap">
-                            <div class="title">
-                               Share <i class="fas fa-share-alt font-sm"></i>
+                            <div class="title chart-title">
+                                News <i class="fas fa-newspaper"></i> <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="News related to COVID-19"><i class="fas fa-question-circle font-sm"></i></span>
                             </div>
-                            <div class="margin-top-10 btn-share-wrapper">
-                                <input type="hidden" id="website_url" value="<?=base_url();?>" />
-                                <a href="https://www.facebook.com/sharer/sharer.php?u=<?=base_url();?>" target="_blank" rel="noopener" class="btn btn-circle btn-dark btn-share-icon"><i class="fab fa-facebook-f"></i></a>
-                                <a id="mobile-view" href="fb-messenger://share/?link=<?=base_url();?>&app_id=576747789395855" target="_blank" rel="noopener" class="btn btn-circle btn-dark btn-share-icon"><i class="fab fa-facebook-messenger"></i></a>
-                                <a href="https://twitter.com/intent/tweet?original_referer=<?=base_url();?>&text=Track and monitor COVID-19 Updates in the Philippines&url=<?=base_url()?>&hashtags=COVID19,COVIDUpdates" target="_blank" rel="noopener"  class="btn btn-circle btn-dark btn-share-icon"><i class="fab fa-twitter"></i></a>
-                                <!-- <a data-toggle="tooltip" data-placement="top" href="#copy" id="share_btn_copy" class="btn btn-circle btn-dark btn-share-icon"><i class="fas fa-copy"></i></a> -->
-                            </div>                      
+                            <div id="latest-news-wrapper">
+                                <div class="preload-data">
+                                    <div class="_preload-data"></div>
+                                    <div class="__preload-data"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+           <div class="col-lg-5">
+                <div class="element-column-wrap">
+                    <div class="title">
+                        Share <i class="fas fa-share-alt font-sm"></i>
+                    </div>
+                    <div class="margin-top-10 btn-share-wrapper">
+                        <input type="hidden" id="website_url" value="<?=base_url();?>" />
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?=base_url();?>" target="_blank" rel="noopener" class="btn btn-circle btn-dark btn-share-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a id="mobile-view" href="fb-messenger://share/?link=<?=base_url();?>&app_id=576747789395855" target="_blank" rel="noopener" class="btn btn-circle btn-dark btn-share-icon"><i class="fab fa-facebook-messenger"></i></a>
+                        <a href="https://twitter.com/intent/tweet?original_referer=<?=base_url();?>&text=Track and monitor COVID-19 Updates in the Philippines&url=<?=base_url()?>&hashtags=COVID19,COVIDUpdates" target="_blank" rel="noopener"  class="btn btn-circle btn-dark btn-share-icon"><i class="fab fa-twitter"></i></a>
+                    </div>                      
                 </div>
             </div>
         </div>

@@ -60,16 +60,8 @@ class Api_model extends CI_Model {
             $feeds[$i]['title'] = (string) $item->title;
             $feeds[$i]['source'] = (string) $item->source;
             $feeds[$i]['url'] = (string) $item->link;
-            // $feeds[$i]['link'] = (string) $item->link;
-            // $feeds[$i]['image'] = $match[1];
-            // $feeds[$i]['site_title'] = strip_tags($parts[1]);
-            // $feeds[$i]['story'] = strip_tags($parts[2]);
             $i++;
         }
-
-        // if (strpos($feeds, 'coronavirus' || $feeds, 'covid2') !== false) {
-        //     echo 'true';
-        // }
 
         $this->output->set_content_type('application/json')->set_output(json_encode($feeds));
         // echo json_encode($feeds);
@@ -79,11 +71,13 @@ class Api_model extends CI_Model {
         // require 'simple_html_dom.php';
         require_once(APPPATH.'libraries/simple_html_dom.php');
 
-        $html = file_get_html('https://kenkarlo.com/');
-        $title = $html->find('title', 0);
-        $image = $html->find('img', 0);
+        $html = file_get_html('https://ncovtracker.doh.gov.ph');
+        $title = $html->find('div.external-html', 0);
+        // $image = $html->find('img', 0);
+        // $link = $html->find('a', 0);
 
         echo $title->plaintext."<br>\n";
-        echo $image->src;
+        // echo $image->src;
+        // echo $link->href;
     }
 }
