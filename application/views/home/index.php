@@ -98,9 +98,15 @@
                                 Chart Statistics
                             </div>
                             <div class="icons-tab-btn">
-                                <button class="btn btn-dark btn-sm" id="number_cases_stat"><i class="fas fa-users"></i></button>
-                                <button class="btn btn-dark btn-sm" id="number_recovered_stat"><i class="fas fa-heartbeat"></i></button>
-                                <button class="btn btn-dark btn-sm" id="number_death_stat"><i class="fas fa-skull"></i></button>
+                                <div class="preload-data margin-top-20"  hidden="hidden">
+                                    <div class="__preload-data"></div>
+                                    <div class="___preload-data"></div>
+                                </div> 
+                                <div id="chart-btn-wrapper">
+                                    <button class="btn btn-dark btn-sm" id="number_cases_stat"><i class="fas fa-users"></i></button>
+                                    <button class="btn btn-dark btn-sm" id="number_recovered_stat"><i class="fas fa-heartbeat"></i></button>
+                                    <button class="btn btn-dark btn-sm" id="number_death_stat"><i class="fas fa-skull"></i></button>
+                                </div>
                             </div>
                             <div class="preload-data margin-top-20" id="preload_data" hidden="hidden">
                                 <div class="__preload-data"></div>
@@ -174,6 +180,7 @@
 
                                 <div class="col-lg-12 margin-top-10 text-center">
                                     <span class="font-11"><a id="show_close_case" href="#show_chart">Show Chart</a></span>
+                                    <span class="font-11"><a id="hide_close_case" href="#hide_chart" hidden>Hide Chart</a></span>
                                 </div>
                             </div>
                             
@@ -194,34 +201,37 @@
                                 </div>
                             </div>
 
-                            <div class="row margin-top-20">
-                                <div class="col-lg-6">
-                                    <div class=" close-case-percent">
-                                        <span id="_mild_cases">
-                                            <div class="preload-data">
-                                                <div class="_preload-data"></div>
-                                                <div class="__preload-data"></div>
-                                            </div>
-                                        </span>
-                                        <span class="sub-percent-cases" id="mild_percent_cases_sub"></span>
+                            <div class=" margin-top-20">
+                                <canvas id="_active_cases_chart" hidden="hidden" width="400" height="180"></canvas>
+                                <div class="row" id="active_cases_wrapper">
+                                    <div class="col-lg-6">
+                                        <div class=" close-case-percent">
+                                            <span id="_mild_cases">
+                                                <div class="preload-data">
+                                                    <div class="_preload-data"></div>
+                                                    <div class="__preload-data"></div>
+                                                </div>
+                                            </span>
+                                            <span class="sub-percent-cases" id="mild_percent_cases_sub"></span>
+                                        </div>
+                                        <div>
+                                            Mild Condition
+                                        </div>
                                     </div>
-                                    <div>
-                                        Mild Condition
-                                    </div>
-                                </div>
 
-                                <div class="col-lg-6">
-                                    <div class="close-case-percent ">
-                                        <span id="critical">
-                                            <div class="preload-data">
-                                                <div class="_preload-data"></div>
-                                                <div class="__preload-data"></div>
-                                            </div>
-                                        </span>
-                                        <span class="sub-percent-cases" id="critical_percent_cases_sub"></span>
-                                    </div>
-                                    <div>
-                                        Serious or Critical
+                                    <div class="col-lg-6">
+                                        <div class="close-case-percent ">
+                                            <span id="critical">
+                                                <div class="preload-data">
+                                                    <div class="_preload-data"></div>
+                                                    <div class="__preload-data"></div>
+                                                </div>
+                                            </span>
+                                            <span class="sub-percent-cases" id="critical_percent_cases_sub"></span>
+                                        </div>
+                                        <div>
+                                            Serious or Critical
+                                        </div>
                                     </div>
                                 </div>
 
@@ -232,9 +242,6 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-12 margin-top-10 text-center">
-                                    <span class="font-11"><a id="show_active_case" href="#show_chart">Show Chart</a></span>
-                                </div>
 
                             </div>
                             

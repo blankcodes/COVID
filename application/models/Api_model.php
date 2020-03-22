@@ -47,7 +47,12 @@ class Api_model extends CI_Model {
                 array_push($dataInfo, $array); 
             }
             $this->output->cache('15');
+            $dataInfo['status'] = 'Connected';
         }
+        else{
+            $dataInfo['status'] = 'Connection Timeout';
+        }
+
         $this->output->set_content_type('application/json')->set_output(json_encode($dataInfo));
     }
 

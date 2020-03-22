@@ -2,6 +2,13 @@
 var base_url;
 var country;
 
+getAPIData(country);
+confirmedCases();
+
+$("#_close_cases_chart").attr('hidden', 'hidden');
+$("#show_close_case").attr('hidden', 'hidden');
+$("#show_active_cases").attr('hidden', 'hidden');
+
 $("#number_cases_stat").on('click', function(){
     confirmedCases();
 })
@@ -14,10 +21,13 @@ $("#number_death_stat").on('click', function(){
 $("#show_close_case").on('click', function(){
     closeCasesChart();
 })
-$("#_close_cases_chart").attr('hidden', 'hidden');
+$("#hide_close_case").on('click', function(){
+    $(this).attr('hidden', 'hidden');
+    $('#_close_cases_chart').attr('hidden', 'hidden');
+    $('#show_close_case').removeAttr('hidden');
+    $('#close_cases_wrapper').removeAttr('hidden');
+})
 
-getAPIData(country);
-confirmedCases();
 
 function getAPIData(country){
     // $("#loader").modal('toggle');
@@ -58,48 +68,56 @@ function confirmedCases(){
     $("#chart_wrapper").attr('hidden', 'hidden');
     $("#confirmedCaseChart").removeAttr('hidden');
     $("#preload_data").removeAttr('hidden')
+
     $.ajax({
         url: base_url+ 'api/v1/covid/get-historical-data',
         type: 'GET',
         dataType: 'JSON',
     })
     .done(function(data){
-        $("#deathCaseChart").attr('hidden','hidden');
-        $("#recoveredCaseChart").attr('hidden','hidden');
-        for(var i in data){
-            if(data[i].country == 'Philippines'){
+        if(data.status == 'Connected'){
+            $("#deathCaseChart").attr('hidden','hidden');
+            $("#recoveredCaseChart").attr('hidden','hidden');
+            $("#show_close_case").removeAttr('hidden');
 
-                timelineCases = data[i].timeline.cases;
-                dateCases = Object.keys(timelineCases);
-                numberCases = Object.values(timelineCases);
+            for(var i in data){
+                if(data[i].country == 'Philippines'){
 
-                var chart = $('#confirmedCaseChart');
-                var myChart = new Chart(chart, {
-                    type: 'line',
-                    data: {
-                        labels: dateCases,
-                        datasets: [{
-                            label: 'Number of Confirmed Cases',
-                            data: numberCases,
-                            backgroundColor: '#ffc107',
-                            borderColor: '#ffc107',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
+                    timelineCases = data[i].timeline.cases;
+                    dateCases = Object.keys(timelineCases);
+                    numberCases = Object.values(timelineCases);
+
+                    var chart = $('#confirmedCaseChart');
+                    var myChart = new Chart(chart, {
+                        type: 'line',
+                        data: {
+                            labels: dateCases,
+                            datasets: [{
+                                label: 'Number of Confirmed Cases',
+                                data: numberCases,
+                                backgroundColor: '#ffc107',
+                                borderColor: '#ffc107',
+                                borderWidth: 1
                             }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
+            $("#preload_data").attr('hidden', 'hidden');
+            $("#chart_wrapper").removeAttr('hidden')
         }
-        $("#preload_data").attr('hidden', 'hidden');
-        $("#chart_wrapper").removeAttr('hidden')
+        else{
+            $("#preload_data").html('Connection Error!');
+        }
     })
 }
 function deathCases(){
@@ -206,11 +224,18 @@ function closeCasesChart(){
     })
     .done(function(data){
         $('#close_cases_wrapper').attr('hidden', 'hidden');
+        $('#_close_cases_chart').removeAttr('hidden');
+        $('#show_close_case').attr('hidden', 'hidden');
+        $("#hide_close_case").removeAttr('hidden');
         for(var i in data){
             if(data[i].country == 'Philippines'){
                 timelineRecover = data[i].timeline.recovered;
                 dateRecover = Object.keys(timelineRecover);
                 numberecover = Object.values(timelineRecover);
+
+                timelineDeaths = data[i].timeline.deaths;
+                dateDeaths = Object.keys(timelineDeaths);
+                numberDeaths = Object.values(timelineDeaths);
 
                 var chart = $('#_close_cases_chart');
                 var myChart = new Chart(chart, {
@@ -218,19 +243,29 @@ function closeCasesChart(){
                     data: {
                         labels: dateRecover,
                         datasets: [{
-                            label: 'Number of Recovered Cases',
+                            label: 'Recovered Cases',
                             data: numberecover,
-                            backgroundColor: '#11c15b',
+                            // backgroundColor: '#11c15b',
                             borderColor: '#11c15b',
                             borderWidth: 1
-                        }]
+                        },
+                        {
+                            label: 'Death Cases',
+                            data: numberDeaths,
+                            // backgroundColor: '#ff5252',
+                            borderColor: '#ff5252',
+                            borderWidth: 1
+                        }
+                    ]
                     },
                     options: {
                         scales: {
+                            xAxes: [{
+                                display: true,
+                            }],
                             yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
+                                display: true,
+                                type: 'logarithmic',
                             }]
                         }
                     }
@@ -240,6 +275,7 @@ function closeCasesChart(){
 
     })
 }
+
 // rssFeed();
 function rssFeed(){
     
