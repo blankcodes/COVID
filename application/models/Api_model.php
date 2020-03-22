@@ -35,38 +35,55 @@ class Api_model extends CI_Model {
 
     }
     public function getHistoricalData(){
-        $url = 'https://corona.lmao.ninja/historical';
+        $countryInput = $this->input->get('country');
+        $url = 'https://corona.lmao.ninja/historical/'.$countryInput;
         $data = json_decode(file_get_contents($url, false));
-        if($data > 0){
-            $dataInfo = array();
-            foreach($data as $d){
-                $array = array(
-                    'country'=>$d->country,
-                    'timeline'=>$d->timeline,
-                );
-                array_push($dataInfo, $array); 
-            }
-            $this->output->cache('15');
-            $dataInfo['status'] = 'Connected';
-        }
-        else{
-            $dataInfo['status'] = 'Connection Timeout';
-        }
-
-        $this->output->set_content_type('application/json')->set_output(json_encode($dataInfo));
-    }
-
-    function getHistoricalDataDeaths(){
-        $url = 'https://corona.lmao.ninja/historical';
-        $data = json_decode(file_get_contents($url, false));
-        $dataInfo = array();
-        foreach($data as $d){
-            $array = array(
-               'country'=>$d->country,
-               'timeline'=>$d->timeline,
+        if($data){
+            $data = array(
+                'timeline'=>$data->timeline,
             );
-            array_push($dataInfo, $array); 
+            $this->output->cache('15');
+            $data['status'] = 'Connected';
         }
-        $this->output->set_content_type('application/json')->set_output(json_encode($dataInfo));
+        $this->output->set_content_type('application/json')->set_output(json_encode($data));
+    }
+    public function getRssFeed(){
+        $news = simplexml_load_file('https://news.google.com/rss?hl=en-PH&gl=PH&ceid=PH:en&search?q=coronavirus,covid19');
+
+        $feeds = array();
+        $i = 0;
+
+        foreach ($news->channel->item as $item) {
+            preg_match('@src="([^"]+)"@', $item->description, $match);
+            $parts = explode('<font size="-1">', $item->description);
+            
+            $feeds[$i]['title'] = (string) $item->title;
+            $feeds[$i]['source'] = (string) $item->source;
+            $feeds[$i]['url'] = (string) $item->link;
+            // $feeds[$i]['link'] = (string) $item->link;
+            // $feeds[$i]['image'] = $match[1];
+            // $feeds[$i]['site_title'] = strip_tags($parts[1]);
+            // $feeds[$i]['story'] = strip_tags($parts[2]);
+            $i++;
+        }
+
+        // if (strpos($feeds, 'coronavirus' || $feeds, 'covid2') !== false) {
+        //     echo 'true';
+        // }
+
+        $this->output->set_content_type('application/json')->set_output(json_encode($feeds));
+        // echo json_encode($feeds);
+    }
+    public function webScrap(){
+       
+        // require 'simple_html_dom.php';
+        require_once(APPPATH.'libraries/simple_html_dom.php');
+
+        $html = file_get_html('https://kenkarlo.com/');
+        $title = $html->find('title', 0);
+        $image = $html->find('img', 0);
+
+        echo $title->plaintext."<br>\n";
+        echo $image->src;
     }
 }
