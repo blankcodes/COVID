@@ -27,7 +27,16 @@ $("#hide_close_case").on('click', function(){
     $('#show_close_case').removeAttr('hidden');
     $('#close_cases_wrapper').removeAttr('hidden');
 })
+$("#share_btn_copy").on('click', function(){
+    url = document.getElementById("website_url");
+     // url.select();
+    // url.setSelectionRange(0, 99999); /*For mobile devices*/
 
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+    $('#share_btn_copy').attr({'data-original-title':'Copied: '+url.value, 'title':'Copied:'+url.value}).show
+    // alert("Copied: " + url.value);
+})
 
 function getAPIData(country){
     // $("#loader").modal('toggle');
@@ -116,7 +125,7 @@ function confirmedCases(){
             $("#chart_wrapper").removeAttr('hidden')
         }
         else{
-            $("#preload_data").html('Connection Error!');
+            $("#preload_data").html('Connection Error! <a href="#refresh" onclick="confirmedCases()"><i class="fab fa-refresh></i></a>' );
         }
     })
 }

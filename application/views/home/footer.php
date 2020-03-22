@@ -4,9 +4,9 @@
         </div>
     </div>
 
-    <div class="container margin-bottom-30 margin-top-20">
-        Reference: <a target="_blank" rel="noopener noreferrer" href="https://github.com/NovelCOVID/API">NovelCOVID</a> | 
-        Source: <a target="_blank" rel="noopener noreferrer" href="https://www.worldometers.info/coronavirus/">Worldometers</a> |  
+    <div class="container margin-bottom-30 margin-top-20 text-center">
+        Reference: <a target="_blank" rel="noopener noreferrer" href="https://github.com/NovelCOVID/API">NovelCOVID</a> ∙
+        Source: <a target="_blank" rel="noopener noreferrer" href="https://www.worldometers.info/coronavirus/">Worldometers</a> ∙ 
         Developer: <a target="_blank" rel="noopener noreferrer" href="https://kenkarlo.com">Ken Karlo</a>
     </div>
     <footer class="footer">

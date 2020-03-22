@@ -13,17 +13,17 @@
 
     <!-- Open Graph data -->
     <meta property="fb:app_id" content="576747789395855" />
-    <meta property="og:title" content="getInfo COVID-19 Updates" />
+    <meta property="og:title" content="Philippines COVID-19 Updates" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://kenkarlo.com/assets/images/blog/549824-write-for-us.jpg" />
-    <meta property="og:description" content="getInfo COVID-19 Updates" />
+    <meta property="og:image" content="<?=base_url()?>assets/img/cover-featured.jpg" />
+    <meta property="og:description" content="Track and monitor COVID-19 Updates in the Philippines" />
 
     <!-- Plugin Links -->
-    <link rel="shortcut icon" href="<?=base_url('assets/images/logo.png')?>">
-    <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="<?=base_url('assets/images/logo.png')?>">
+    <link rel="shortcut icon" href="<?=base_url('assets/img/logo.png')?>">
+    <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="<?=base_url('assets/img/logo.png')?>">
     <link rel="stylesheet" type="text/css" href="<?=base_url('assets/bootstrap4/bootstrap.min.css')?>">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <link rel="stylesheet" href="<?=base_url('assets/styles/styles.css')?>">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 </head>
 <body>
     <div class="container margin-top-50">
@@ -139,7 +139,7 @@
                             <div class=" margin-top-20">
                                 <canvas id="_close_cases_chart" width="400" height="180"></canvas>
                                 <div id="close_cases_wrapper" class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6 col-6">
                                         <div class="close-case-percent" >
                                             <span id="_recovered_cases">
                                                 <div class="preload-data">
@@ -154,7 +154,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6 col-6">
                                         <div class="close-case-percent" >
                                             <span id="_death_cases">
                                             <div class="preload-data">
@@ -245,6 +245,23 @@
 
                             </div>
                             
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="element-column-wrap">
+                            <div class="title">
+                               Share <i class="fas fa-share-alt font-sm"></i>
+                            </div>
+                            <div class="margin-top-10 btn-share-wrapper">
+                                <input type="hidden" id="website_url" value="<?=base_url();?>" />
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=<?=base_url();?>" target="_blank" rel="noopener" class="btn btn-circle btn-dark btn-share-icon"><i class="fab fa-facebook-f"></i></a>
+                                <a id="mobile-view" href="fb-messenger://share/?link=<?=base_url();?>&app_id=576747789395855" target="_blank" rel="noopener" class="btn btn-circle btn-dark btn-share-icon"><i class="fab fa-facebook-messenger"></i></a>
+                                <a href="https://twitter.com/intent/tweet?original_referer=<?=base_url();?>&text=Track and monitor COVID-19 Updates in the Philippines&url=<?=base_url()?>&hashtags=COVID19,COVIDUpdates" target="_blank" rel="noopener"  class="btn btn-circle btn-dark btn-share-icon"><i class="fab fa-twitter"></i></a>
+                                <!-- <a data-toggle="tooltip" data-placement="top" href="#copy" id="share_btn_copy" class="btn btn-circle btn-dark btn-share-icon"><i class="fas fa-copy"></i></a> -->
+                            </div>                      
                         </div>
                     </div>
                 </div>
