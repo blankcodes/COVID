@@ -3,7 +3,7 @@ var base_url;
 var country;
 
 getAPIData(country);
-getRssFeed();
+getLatestNews();
 confirmedCases();
 
 $("#_close_cases_chart").attr('hidden', 'hidden');
@@ -75,7 +75,19 @@ function getAPIData(country){
         $('#critical').html('<i class="text-danger fa fa-circle font-sm"></i> '+data.critical);
         $('#critical_percent_cases_sub').html('('+data.criticalCasesCasesPercent+'%)');
         $('#__critical').attr({'style':'width: '+data.criticalCasesCasesPercent+'%', 'aria-valuenow':data.criticalCasesCasesPercent});
+        
+        $("#global_closed_cases").html(data.globalTotalCloseCases)
+        $("#global_confirmed_case").html(data.global.cases)
+        $("#_global_recovered_cases").html('<i class="text-success fa fa-circle font-sm"></i> '+data.global.recovered)
+        $("#_global_death_cases").html('<i class="text-danger fa fa-circle font-sm"></i> '+data.global.deaths)
 
+        $('#global_recovered_case_percent').html('('+data.globalPercentRecovered+'%)');
+        $('#global_death_case_percent').html('('+data.globalDeathsRecovered+'%)');
+
+        $('#__global_recovered_cases').attr('style', 'width: '+data.globalPercentRecovered+'%').attr('aria-valuenow', data.globalPercentRecovered);
+        $('#__global_death_cases').attr('style', 'width: '+data.globalDeathsRecovered+'%').attr('aria-valuenow', data.globalDeathsRecovered11);
+
+        // $("#global_death_case").html(data.global.deaths)
         // $("#loader").modal('hide');
     });
 }
@@ -238,6 +250,7 @@ function closeCasesChart(){
         $('#show_close_case').attr('hidden', 'hidden');
         $("#hide_close_case").removeAttr('hidden');
 
+
         recovered = data.timeline.recovered;
         recDateCases = Object.keys(recovered);
         recNumCases = Object.values(recovered);
@@ -284,11 +297,12 @@ function closeCasesChart(){
 }
 
 
-function getRssFeed(){
+function getLatestNews(){
     $.ajax({
-        url: base_url+'api/v1/covid/news-rss',
+        url: base_url+'api/v1/covid/latest-news',
         type: 'GET',
         dataType: 'JSON',
+        data: {country:country}
     })
     .done(function(data){ 
         if (data.length > 0){
@@ -301,7 +315,7 @@ function getRssFeed(){
     })
 }
 
-webScrape()
+// webScrape()
 function webScrape(){
     $.ajax({
         url: base_url+'api/v1/covid/web-scrape',
@@ -312,3 +326,4 @@ function webScrape(){
 
     })
 }
+setTimeout(function(){$("#notifyModal").modal('toggle')},4000)

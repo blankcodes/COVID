@@ -2,7 +2,7 @@
 
 body {
     background:#000;
-    font-family: Mada, sans-serif;
+    font-family: 'Font Awesome 5 Free';
     color: #7e86a1;
 }
 a{
@@ -131,6 +131,7 @@ a:hover{
 .element-row-main .title{
     font-weight: 600;
     color: #7e86a1;
+    font-size: 12pt;
 }
 .element-row-main .icons{
     position: absolute;
@@ -149,7 +150,7 @@ a:hover{
     display: inline-block;
     background: #1e1e1e;
     margin: 10px 0px 10px 0px;
-    padding: 33px 35px 16px !important;
+    padding: 25px 35px 20px !important;
     box-shadow: 0 0 10px rgba(0,0,0,.03);
     border-radius: 4px;
 }
@@ -201,7 +202,7 @@ a:hover{
     font-weight: 600;
 }
 .sub-percent-cases{
-    font-size: 13pt;
+    font-size: 12pt;
     font-weight: 500;
 }
 .font-sm{
@@ -260,6 +261,9 @@ background-color: transparent !important;
     #mobile-view {
         display: block;
     }
+    .font-fontawesome {
+        font-family: 'Font Awesome 5 Free';
+    }
 }
 
 @media only screen and (min-width: 570px) {
@@ -281,8 +285,12 @@ background-color: transparent !important;
     bottom:0;
     background-color: #1e1e1e;;
     color: #fff;
-    height: 100px;
-    padding: 10px 15px;
+    /*height: 100px;*/
+    padding: 25px 15px 20px 15px;
+}
+.footer-element{
+    padding: 10px 15px 20px 15px;
+    background-color: #131313;;
 }
 /* show while data is not loaded */
 ._preload-data{
@@ -424,4 +432,25 @@ background-color: transparent !important;
     position: absolute;
     right: 40px;
     top: 40px;
+}
+.footer-credits h2{
+    font-size: 13pt;
+    font-weight: 600;
+    color: #747e9d;
+}
+.footer-credits ul li{
+    list-style-type: none;
+}
+.footer-credits ul li a{
+    margin-left: -40px;
+    font-size: 12pt;
+}
+.modal-cs{
+    background: #fff;
+}
+.modal-header{
+    border-bottom: 0px;
+}
+.modal-footer{
+    border-top: 0px;
 }

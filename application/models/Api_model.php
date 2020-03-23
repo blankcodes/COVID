@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Api_model extends CI_Model {
     public function getAPIData(){
+        $globalRecord = $this->globalRecordData();
         $countryInput = $this->input->get('country');
         $url = 'https://corona.lmao.ninja/countries/'.$countryInput;
         $data = json_decode(file_get_contents($url, false));
@@ -29,6 +30,13 @@ class Api_model extends CI_Model {
         $dataInfo['recoverCasesPercent'] = round( $data->recovered / $closeCases * 100, 2);
         $dataInfo['deathsCasesPercent'] = round( $data->deaths / $closeCases * 100, 2);
 
+        $dataInfo['globalTotalCloseCases'] = $globalRecord->deaths +  $globalRecord->recovered;
+        $dataInfo['globalPercentRecovered'] = round($globalRecord->recovered / $dataInfo['globalTotalCloseCases'] * 100, 2);
+        $dataInfo['globalDeathsRecovered'] =  round($globalRecord->deaths / $dataInfo['globalTotalCloseCases'] * 100, 2);
+        
+
+        $dataInfo['global'] = $globalRecord;
+
         // return $dataInfo;
         $this->output->cache('15');
         $this->output->set_content_type('application/json')->set_output(json_encode($dataInfo));
@@ -46,6 +54,11 @@ class Api_model extends CI_Model {
             $data['status'] = 'Connected';
         }
         $this->output->set_content_type('application/json')->set_output(json_encode($data));
+    }
+    public function globalRecordData(){
+        $url = 'https://corona.lmao.ninja/all';
+        $data = json_decode(file_get_contents($url, false));
+        return $data;
     }
     public function getRssFeed(){
         $news = simplexml_load_file('https://news.google.com/rss?hl=en-PH&gl=PH&ceid=PH:en&search?q=coronavirus,covid19');
