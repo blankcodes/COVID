@@ -38,7 +38,11 @@ $("#share_btn_copy").on('click', function(){
     $('#share_btn_copy').attr({'data-original-title':'Copied: '+url.value, 'title':'Copied:'+url.value}).show
     // alert("Copied: " + url.value);
 })
+htmlBody();
+function htmlBody(){
+    
 
+}
 function getAPIData(country){
     // $("#loader").modal('toggle');
     $.ajax({
@@ -48,10 +52,12 @@ function getAPIData(country){
         data: {country:country}
     })
     .done(function(data){
-        $('#confirmed_cases span').html(data.cases);
-        $('#recovered_cases span').text(data.recovered);
-        $('#deaths_cases span').text(data.deaths);
+    
+        $('#confirmed_cases span').html(data.cases + ' <span class="fw-500 font-15 font-fontawesome text-warning">(' +data.todayCases+' <sup class="font-xs">Today</sup>)</span>');
+        $('#recovered_cases span').html(data.recovered);
+        $('#deaths_cases span').html(data.deaths + ' <span class="fw-500 font-15 font-fontawesome text-danger">(' +data.todayDeaths+' <sup class="font-xs">Today</sup>)</span>');
         $('#closed_cases').text(data.closeCases);
+        $('#confirmed_cases_today').html('<span class="fw-600 text-warning"><i class="fas fa-caret-up font-sm"></i> ' +data.todayCases+'</span>');
 
         $('#_recovered_cases').html('<i class="text-success fa fa-circle font-sm"></i> '+data.recovered);
         $('#__recovered_cases').attr('style', 'width: '+data.recoverCasesPercent+'%').attr('aria-valuenow', data.recoverCasesPercent);
@@ -298,7 +304,7 @@ function getRssFeed(){
 webScrape()
 function webScrape(){
     $.ajax({
-        url: base_url+'api/v1/covid/web-scrap',
+        url: base_url+'api/v1/covid/web-scrape',
         type: 'GET',
         dataType: 'JSON',
     })

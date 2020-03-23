@@ -11,6 +11,9 @@ a{
 a:hover{
     color: #97a0c0;
 }
+.font-fontawesome {
+    font-family: 'Font Awesome 5 Free';
+}
 .margin-top-0 {
     margin-top: 0px !important;
 }
@@ -109,8 +112,24 @@ a:hover{
 .margin-bottom-200 {
     margin-bottom: 200px !important;
 }
-.element-row-main .title{
+/* font weight */
+.fw-700{
+    font-weight: 700;
+}
+.fw-600{
+    font-weight: 600;
+}
+.fw-500{
     font-weight: 500;
+}
+.fw-400{
+    font-weight: 400;
+}
+.fw-300{
+    font-weight: 300;
+}
+.element-row-main .title{
+    font-weight: 600;
     color: #7e86a1;
 }
 .element-row-main .icons{
@@ -130,7 +149,7 @@ a:hover{
     display: inline-block;
     background: #1e1e1e;
     margin: 10px 0px 10px 0px;
-    padding: 33px 35px 24px !important;
+    padding: 33px 35px 16px !important;
     box-shadow: 0 0 10px rgba(0,0,0,.03);
     border-radius: 4px;
 }
@@ -196,6 +215,15 @@ a:hover{
 }
 .font-11{
     font-size: 11pt; 
+}
+.font-13{
+    font-size: 13pt; 
+}
+.font-15{
+    font-size: 15pt; 
+}
+.font-14{
+    font-size: 20pt; 
 }
 .cursor-pointer{
     cursor: pointer;

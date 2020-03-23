@@ -1,10 +1,34 @@
+<!-- 
+MIT License
+
+Copyright (c) 2020 Ken Karlo
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>COVID-19 Updates</title>
+    <title>Philippines COVID-19 Updates</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Track and monitor COVID-19 Updates in the Philippines">
@@ -37,7 +61,6 @@
 <body>
     <div class="container margin-top-30">
         <div class="text-center">
-            <!-- <h1 class="element-heading-title">Philippines COVID-19 Updates</h1> -->
             <img class="img-fluid" draggable="false" alt="Philippines COVID-19 Updates" src="<?=base_url('assets/img/title-cover.jpg')?>">
         </div>
 
@@ -140,6 +163,59 @@
                         <div class="element-column-wrap">
                             <div>
                                 <div class="title">
+                                    Active Cases <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="Currently infected patients which had on outcome"><i class="fas fa-question-circle font-sm"></i></span>
+                                </div>
+                                <div class="element-info-right" id="_active_cases">
+                                    0
+                                </div>
+                            </div>
+                            <div class=" margin-top-20">
+                                <div class="row" id="active_cases_wrapper">
+                                    <div class="col-lg-6">
+                                        <div class=" close-case-percent">
+                                            <span id="_mild_cases">
+                                                <div class="preload-data">
+                                                    <div class="_preload-data"></div>
+                                                    <div class="__preload-data"></div>
+                                                </div>
+                                            </span>
+                                            <span class="sub-percent-cases" id="mild_percent_cases_sub"></span>
+                                        </div>
+                                        <div>
+                                            Mild Condition
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="close-case-percent ">
+                                            <span id="critical">
+                                                <div class="preload-data">
+                                                    <div class="_preload-data"></div>
+                                                    <div class="__preload-data"></div>
+                                                </div>
+                                            </span>
+                                            <span class="sub-percent-cases" id="critical_percent_cases_sub"></span>
+                                        </div>
+                                        <div>
+                                            Serious or Critical
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 margin-top-10">
+                                    <div class="progress close-cases-progress">
+                                        <div class="progress-bar progress-bar-case bg-primary" id="__mild_cases" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar progress-bar-case bg-danger" id="__critical" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="element-column-wrap">
+                            <div>
+                                <div class="title">
                                     Closed Cases <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="Closed cases which had on outcome"><i class="fas fa-question-circle font-sm"></i></span>
                                 </div>
                                 <div class="element-info-right" id="closed_cases">
@@ -148,7 +224,7 @@
                             </div>
 
                             <div class=" margin-top-20">
-                                <canvas id="_close_cases_chart" width="400" height="180"></canvas>
+                                <canvas id="_close_cases_chart" width="400" height="150"></canvas>
                                 <div id="close_cases_wrapper" class="row">
                                     <div class="col-lg-6 col-6">
                                         <div class="close-case-percent" >
@@ -194,65 +270,6 @@
                                     <span class="font-11"><a id="hide_close_case" href="#hide_chart" hidden>Hide Chart</a></span>
                                 </div>
                             </div>
-                            
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="element-column-wrap">
-                            <div>
-                                <div class="title">
-                                    Active Cases <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="Currently infected patients which had on outcome"><i class="fas fa-question-circle font-sm"></i></span>
-                                </div>
-                                <div class="element-info-right" id="_active_cases">
-                                    0
-                                </div>
-                            </div>
-
-                            <div class=" margin-top-20">
-                                <canvas id="_active_cases_chart" hidden="hidden" width="400" height="180"></canvas>
-                                <div class="row" id="active_cases_wrapper">
-                                    <div class="col-lg-6">
-                                        <div class=" close-case-percent">
-                                            <span id="_mild_cases">
-                                                <div class="preload-data">
-                                                    <div class="_preload-data"></div>
-                                                    <div class="__preload-data"></div>
-                                                </div>
-                                            </span>
-                                            <span class="sub-percent-cases" id="mild_percent_cases_sub"></span>
-                                        </div>
-                                        <div>
-                                            Mild Condition
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6">
-                                        <div class="close-case-percent ">
-                                            <span id="critical">
-                                                <div class="preload-data">
-                                                    <div class="_preload-data"></div>
-                                                    <div class="__preload-data"></div>
-                                                </div>
-                                            </span>
-                                            <span class="sub-percent-cases" id="critical_percent_cases_sub"></span>
-                                        </div>
-                                        <div>
-                                            Serious or Critical
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12 margin-top-10">
-                                    <div class="progress close-cases-progress">
-                                        <div class="progress-bar progress-bar-case bg-primary" id="__mild_cases" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                                        <div class="progress-bar progress-bar-case bg-danger" id="__critical" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -263,8 +280,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="element-column-wrap">
-                            <div class="title chart-title">
-                                News <i class="fas fa-newspaper"></i> <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="News related to COVID-19"><i class="fas fa-question-circle font-sm"></i></span>
+                            <div class="title margin-bottom-10">
+                                Latest News <i class="fas fa-newspaper"></i> <i class="cursor-pointer news-pointer" ><span class="font-xs">Source: News.google.com</span> <i data-toggle="tooltip" data-placement="top" title="Latest News related to COVID-19" class="fas fa-question-circle font-xs"></i> </i>
                             </div>
                             <div id="latest-news-wrapper">
                                 <div class="preload-data">
@@ -280,6 +297,17 @@
            <div class="col-lg-5">
                 <div class="element-column-wrap">
                     <div class="title">
+                        COVID-19 hotlines <i class="fas fa-info-circle font-sm"></i> 
+                    </div>
+                    <div class="margin-top-10 btn-share-wrapper">
+                        <div>
+                            <div>1555 (PLDT, Smart, Sun, and TnT)</div>
+                            <div>(02)  894-26843 (894-COVID)</div>
+                        </div>
+                    </div>                      
+                </div>
+                <div class="element-column-wrap">
+                    <div class="title">
                         Share <i class="fas fa-share-alt font-sm"></i>
                     </div>
                     <div class="margin-top-10 btn-share-wrapper">
@@ -290,6 +318,8 @@
                     </div>                      
                 </div>
             </div>
+
+
         </div>
 
         

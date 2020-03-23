@@ -23,8 +23,8 @@ class Home extends CI_Controller {
     public function getRssFeed(){
         $this->Api_model->getRssFeed();
     }
-    public function webScrap(){
-        $this->Api_model->webScrap();
+    public function webScrape(){
+        $this->Api_model->webScrape();
     }
     
 }   

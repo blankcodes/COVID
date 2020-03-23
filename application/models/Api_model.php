@@ -15,9 +15,9 @@ class Api_model extends CI_Model {
             'todayDeaths'=>$data->todayDeaths,
             'recovered'=>$data->recovered,
             'critical'=>$data->critical,
-            'casesPerOneMillion'=>$data->casesPerOneMillion,
             'activeCases'=> $data->cases - $data->recovered - $data->deaths,
             'closeCases'=> $data->recovered + $data->deaths,
+            'casesPerOneMillion'=>$data->casesPerOneMillion,
         );
         $closeCases = $data->recovered + $data->deaths;
         $activeCases = $data->cases - $data->recovered - $data->deaths;
@@ -62,22 +62,35 @@ class Api_model extends CI_Model {
             $feeds[$i]['url'] = (string) $item->link;
             $i++;
         }
-
+        $this->output->cache('15');
         $this->output->set_content_type('application/json')->set_output(json_encode($feeds));
         // echo json_encode($feeds);
     }
-    public function webScrap(){
-       
-        // require 'simple_html_dom.php';
+    // public function webScrap(){
+    //     require_once(APPPATH.'libraries/simple_html_dom.php');
+
+    //     $html = file_get_html('https://www.worldometers.info/coronavirus/country/philippines/');
+
+    //     foreach($html->find('[div id="news_block"]') as $d){
+    //         $item['date'] = $d->find('div.news_date');
+    //         $item['update'] = $d->find('div.news_li');
+    //         $data[] = $item;
+    //     }
+    //     $this->output->set_content_type('application/json')->set_output(json_encode($data));
+    // }
+    public function webScrape(){
         require_once(APPPATH.'libraries/simple_html_dom.php');
 
-        $html = file_get_html('https://ncovtracker.doh.gov.ph');
-        $title = $html->find('div.external-html', 0);
-        // $image = $html->find('img', 0);
-        // $link = $html->find('a', 0);
+        $html = file_get_html('https://kenkarlo.com/articles/does-your-domain-name-affect-your-seo2');
 
-        echo $title->plaintext."<br>\n";
-        // echo $image->src;
-        // echo $link->href;
+        $data['title'] = $html->find('title');
+
+
+        // foreach($html->find('.view-id-2019_ncov_advisories') as $d){
+        //     $item['title'] = $d->find('td.views-field-title');
+        //     $data[] = $item;
+        // }
+        // $data['alert'] = $html->find('[div class="external-html"].strong');
+        $this->output->set_content_type('application/json')->set_output(json_encode($data));
     }
 }
