@@ -1,4 +1,4 @@
 # COVID
 Track and monitor live updates for coronavirus
 
-Website: https://ncov-19.kenkarlo.com
+Website: https://2019-ncov.kenkarlo.com
