@@ -4,51 +4,13 @@
         </div>
     </div>
 
-    <div class="margin-top-30">
-        
-    </div>
 
-    <footer class="footer">
+    <footer class="footer" id="footer_wrapper">
         <div class="container">
-            <div class="row footer-credits" >
-                <div class="col-lg-3 col-6">
-                    <h2>Source:</h2>
-                    <ul>
-                        <li><a target="_blank" rel="noopener nofollow noreferrer" href="">Worldometers</a></li>
-                        <li><a target="_blank" rel="noopener nofollow noreferrer" href="https://doh.gov.ph">DOH</a></li>
-                        <li><a target="_blank" rel="noopener nofollow noreferrer" href="https://www.facebook.com/OfficialDOHgov/">DOH Facebook</a></li>
-                        <li><a target="_blank" rel="noopener nofollow noreferrer" href="https://who.int">WHO</a></li>
-                        <li><a target="_blank" rel="noopener nofollow noreferrer" href="https://news.google.com">Google News</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-6">
-                    <h2>Referece:</h2>
-                    <ul>
-                        <li><a target="_blank" rel="noopener nofollow noreferrer" href="https://github.com/NovelCOVID/API">NovelCOVID</a></li>
-                        <li><a target="_blank" rel="noopener nofollow noreferrer" href="https://github.com/CSSEGISandData/COVID-19">CSSEGISandData</a></li>
-
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-6">
-                    <h2>Donations:</h2>
-                    <ul>
-                        <li><a target="_blank" rel="noopener nofollow noreferrer" href="https://www.globe.com.ph/about-us/newsroom/partners/gcash-users-donate-to-fight-covid-19.html">Gcash</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-6">
-                    <h2>Developer:</h2>
-                    <ul>
-                        <li><a target="_blank" rel="noopener" href="https://github.com/blankcodes/covid19">Github</a></li>
-                        <li><a target="_blank" rel="noopener" href="https://kenkarlo.com">Ken Karlo</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        
+            <div class="__preload-data"></div>
+            <div class="___preload-data"></div>
+            <div class="_preload-data"></div>
+        </div>  
     </footer>
     <div class="footer-element">
         <div class="container ">
@@ -71,7 +33,5 @@
     <script src="<?=base_url('assets/bootstrap4/bootstrap.min.js')?>"></script>
     <script src="<?=base_url('assets/js/chart.min.js')?>"></script>
     <script src="<?=base_url('assets/js/historical_data.js')?>"></script>
-    
-
 </body>
 </html>

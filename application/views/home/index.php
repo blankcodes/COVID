@@ -28,16 +28,16 @@ SOFTWARE.
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Philippines COVID-19 Updates</title>
+    <title>Philippines COVID-19 Updates: Confirmed Cases and Deaths</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Track and monitor COVID-19 Updates in the Philippines">
+    <meta name="description" content="Track and monitor COVID-19 Updates in the Philippines: Confirmed Cases and Deaths">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#000" />
 
     <!-- Open Graph data -->
     <meta property="fb:app_id" content="576747789395855" />
-    <meta property="og:title" content="Philippines COVID-19 Updates" />
+    <meta property="og:title" content="Philippines COVID-19 Updates: Confirmed Cases and Deaths" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="<?=base_url()?>" />
     <meta property="og:image" content="<?=base_url()?>assets/img/cover-featured.jpg" />
@@ -47,8 +47,8 @@ SOFTWARE.
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@kensdigest>">
     <meta name="twitter:creator" content="@kensdigest">
-    <meta name="twitter:title" content="Philippines COVID-19 Updates">
-    <meta name="twitter:description" content="<?=base_url()?>assets/img/cover-featured.jpg">
+    <meta name="twitter:title" content="Philippines COVID-19 Updates: Confirmed Cases and Deaths">
+    <meta name="twitter:description" content="Track and monitor COVID-19 Updates in the Philippines: Confirmed Cases and Deaths">
     <meta name="twitter:image" content="<?=base_url()?>assets/img/cover-featured.jpg">
 
     <!-- Plugin Links -->
@@ -59,9 +59,17 @@ SOFTWARE.
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 </head>
 <body>
-    <div class="container margin-top-30">
-        <div class="text-center">
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=576747789395855&autoLogAppEvents=1"></script>
+    <div class="container margin-top-20">
+        <div class="text-center feature-img-div">
             <img class="img-fluid" draggable="false" alt="Philippines COVID-19 Updates" src="<?=base_url('assets/img/title-cover.jpg')?>">
+            <div class="current-time-date" id="web-view">
+                <div class="text-right font-xs">Updated as of:</div>
+                <div id="time_date_clock">
+                    <i class="fa fa-clock"></i> <span class="clock"></span> <span><?=date('F d, Y')?></span>
+                </div>
+            </div>
         </div>
 
         <div class="element-row-main margin-top-20">
@@ -133,7 +141,7 @@ SOFTWARE.
                             <div class="element-column-wrap">
                                 <div>
                                     <div class="title">
-                                        Global Confirmed Cases <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="Record globally of confirmed cases"><i class="fas fa-question-circle font-sm"></i></span>
+                                        Global  Cases <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="Global record of confirmed cases"><i class="fas fa-question-circle font-sm"></i></span>
                                     </div>
                                     <div class="element-info-right" id="global_confirmed_case">
                                         0
@@ -153,7 +161,7 @@ SOFTWARE.
                                                 <span class="sub-percent-cases " id="global_recovered_case_percent"></span>
                                             </div>
                                             <div>
-                                                Recovered Cases
+                                                Recovered 
                                             </div>
                                         </div>
 
@@ -168,7 +176,7 @@ SOFTWARE.
                                                 <span class="sub-percent-cases " id="global_death_case_percent"></span>
                                             </div>
                                             <div>
-                                                Deaths Cases
+                                                Deaths 
                                             </div>
                                         </div>
                                     </div>
@@ -184,7 +192,7 @@ SOFTWARE.
 
                                     <div class="col-lg-12 margin-top-20 text-center">
                                         <div class="title">
-                                            Global Closed Cases <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="Record globally of Closed cases which had on outcome (recovered and deaths)"><i class="fas fa-question-circle font-sm"></i></span>
+                                            Global Closed Cases <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="Global record of Closed cases which had on outcome (recovered and deaths)"><i class="fas fa-question-circle font-sm"></i></span>
                                         </div>
                                         <div class="element-info" id="global_closed_cases">
                                             0
@@ -244,7 +252,7 @@ SOFTWARE.
                                 </div>
                                 <div class=" margin-top-20">
                                     <div class="row" id="active_cases_wrapper">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-6 col-6">
                                             <div class=" close-case-percent">
                                                 <span id="_mild_cases">
                                                     <div class="preload-data">
@@ -258,7 +266,7 @@ SOFTWARE.
                                                 Mild Condition
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-6 col-6">
                                             <div class="close-case-percent ">
                                                 <span id="critical">
                                                     <div class="preload-data">
@@ -347,20 +355,20 @@ SOFTWARE.
                         </div>
                     </div>
 
-                    <!-- <div class="col-lg-5"> -->
-                        <div class="element-column-wrap">
-                            <div class="title">
-                                COVID-19 hotlines <i class="fas fa-info-circle font-sm"></i> 
-                            </div>
-                            <div class="margin-top-10 btn-share-wrapper">
-                                <div >
-                                    <div>1555 (PLDT, Smart, Sun, and TnT)</div>
-                                    <div>(02)  894-26843 (894-COVID)</div>
-                                </div>
-                            </div>                      
+
+
+                    <div class="element-column-wrap">
+                        <div class="title">
+                            COVID-19 hotlines <i class="fas fa-info-circle font-sm"></i> 
                         </div>
+                        <div class="margin-top-10 btn-share-wrapper">
+                            <div class="margin-top-10">
+                                <div>1555 (PLDT, Smart, Sun, and TnT)</div>
+                                <div>(02)  894-26843 (894-COVID)</div>
+                            </div>
+                        </div>                      
+                    </div>
                         
-                    <!-- </div> -->
                     
                 </div>
                 <!-- end 5 -->
@@ -392,6 +400,17 @@ SOFTWARE.
                 <div class="col-lg-5">
                     <div class="element-column-wrap">
                         <div class="title margin-bottom-20 ">
+                            Get protected against COVID-19 <i class="fas fa-stethoscope font-sm"></i>
+                        </div>
+                        <div class="embed-responsive" id="video_wrapper_element">
+                            <div class="fb-video" data-href="https://www.facebook.com/OfficialDOHgov/videos/876618819444243/" data-width="500" data-show-text="false"></div>
+
+                                               
+                        </div>
+                    </div>
+                    
+                    <div class="element-column-wrap">
+                        <div class="title margin-bottom-20 ">
                             Share <i class="fas fa-share-alt font-sm"></i>
                         </div>
                             <div class="btn-share-wrapper">
@@ -404,29 +423,4 @@ SOFTWARE.
                 </div>
             </div>
         </div>
-    </div>
-
-
-    <!-- Modal -->
-    <div class="modal " id="notifyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content modal-cs">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Get protected against COVID-19</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-
-            <div class="embed-responsive embed-responsive-16by9">
-                 <iframe  class="embed-responsive-item" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FOfficialDOHgov%2Fvideos%2F876618819444243%2F&show_text=02"  style="border:none;overflow:hidden: width: auto;" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
-            </div>
-           
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
     </div>

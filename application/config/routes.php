@@ -53,7 +53,7 @@ $route['api/v1/covid/web-scrape'] = 'home/webScrape';
 $route['api/v1/covid/latest-news'] = 'home/getRssFeed';
 $route['api/v1/covid/get-historical-data-deaths'] = 'home/getHistoricalDataDeaths';
 $route['api/v1/covid/get-historical-data'] = 'home/getHistoricalData';
-$route['api/v1/covid/get-api-data'] = 'home/getAPIData';
+$route['api/v1/covid/get-cases-data'] = 'home/getAPIData';
 
 
 $route['default_controller'] = 'home';

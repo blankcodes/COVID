@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+date_default_timezone_set('Asia/Manila');
 
 class Home extends CI_Controller {
     function __construct(){
@@ -7,7 +8,7 @@ class Home extends CI_Controller {
         $this->load->model('Api_model');
     }
 	public function index() {   
-        // $data['getInfo'] = $this->Api_model->getAPIData();
+        // $data['cases'] = $this->Api_model->getCasesData();
 		$this->load->view('home/index');
 		$this->load->view('home/footer');
     }

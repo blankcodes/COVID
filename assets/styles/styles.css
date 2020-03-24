@@ -166,10 +166,10 @@ a:hover{
 }
 .element-info-right{
     font-size: 24pt;
-    font-weight: 600;
+    font-weight: 500;
     position: absolute;
     right: 39px;
-    top: 32px;
+    top: 25px;
 }
 .badge-light-primary {
     background: rgba(70,128,255,.2);
@@ -249,6 +249,10 @@ background-color: transparent !important;
     z-index: 99999;
     /*background-color:#000;*/
  }
+.feature-img-div{
+    position: relative;
+}
+
  @media only screen and (max-width: 569px) {
     .loader-wrapper{
         position: fixed;
@@ -261,8 +265,24 @@ background-color: transparent !important;
     #mobile-view {
         display: block;
     }
+    #web-view {
+        display: none;
+    }
     .font-fontawesome {
         font-family: 'Font Awesome 5 Free';
+    }
+    .current-time-date{
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        background: rgba(0,0,0,.2);
+        color: #fff;
+        padding: 5px 52px;
+        border-radius: 4px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        font-size: 10pt;
     }
 }
 
@@ -278,6 +298,23 @@ background-color: transparent !important;
     #mobile-view {
         display: none;
     }
+    #web-view {
+        display: block;
+    }
+    .current-time-date{
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        background: #000;
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 4px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        background: rgba(0,0,0,.7);
+        font-size: 11pt;
+    }
 }
 .footer{
     left: 0;
@@ -289,8 +326,9 @@ background-color: transparent !important;
     padding: 25px 15px 20px 15px;
 }
 .footer-element{
-    padding: 10px 15px 20px 15px;
-    background-color: #131313;;
+    padding: 10px 15px 25px 15px;
+    background-color: #131313;
+    font-size: 11.5pt;
 }
 /* show while data is not loaded */
 ._preload-data{
@@ -434,7 +472,7 @@ background-color: transparent !important;
     top: 40px;
 }
 .footer-credits h2{
-    font-size: 13pt;
+    font-size: 12pt;
     font-weight: 600;
     color: #747e9d;
 }
@@ -443,7 +481,7 @@ background-color: transparent !important;
 }
 .footer-credits ul li a{
     margin-left: -40px;
-    font-size: 12pt;
+    font-size: 11pt;
 }
 .modal-cs{
     background: #fff;
