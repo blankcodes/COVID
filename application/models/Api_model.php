@@ -42,6 +42,33 @@ class Api_model extends CI_Model {
         $this->output->set_content_type('application/json')->set_output(json_encode($dataInfo));
 
     }
+    public function getCasesData($country = 'philippines'){
+        $url = 'https://corona.lmao.ninja/countries/'.$country;
+        $data = json_decode(file_get_contents($url, false));
+        
+        $dataInfo = array(
+            'country'=>$data->country,
+            'cases'=>$data->cases,
+            'todayCases'=>$data->todayCases,
+            'deaths'=>$data->deaths,
+            'todayDeaths'=>$data->todayDeaths,
+            'recovered'=>$data->recovered,
+            'critical'=>$data->critical,
+            'activeCases'=> $data->cases - $data->recovered - $data->deaths,
+            'closeCases'=> $data->recovered + $data->deaths,
+            'casesPerOneMillion'=>$data->casesPerOneMillion,
+        );
+
+        // return $dataInfo;
+        $this->output->cache('15');
+        if ($dataInfo) {
+            return $dataInfo;
+        }
+        else{
+            return 'error';
+        }
+
+    }
     public function getHistoricalData(){
         $countryInput = $this->input->get('country');
         $url = 'https://corona.lmao.ninja/historical/'.$countryInput;
@@ -94,16 +121,13 @@ class Api_model extends CI_Model {
     public function webScrape(){
         require_once(APPPATH.'libraries/simple_html_dom.php');
 
-        $html = file_get_html('https://kenkarlo.com/articles/does-your-domain-name-affect-your-seo2');
+        $html = file_get_html('https://kenkarlo.com');
 
-        $data['title'] = $html->find('title');
+        $data = $html->find('title',0);
 
-
-        // foreach($html->find('.view-id-2019_ncov_advisories') as $d){
-        //     $item['title'] = $d->find('td.views-field-title');
-        //     $data[] = $item;
-        // }
+        
+        var_dump($data); 
         // $data['alert'] = $html->find('[div class="external-html"].strong');
-        $this->output->set_content_type('application/json')->set_output(json_encode($data));
+        // $this->output->set_content_type('application/json')->set_output(json_encode($data));
     }
 }
