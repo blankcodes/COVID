@@ -49,13 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['api/v1/covid/web-scrape'] = 'home/webScrape';
-$route['api/v1/covid/latest-news'] = 'home/getRssFeed';
-$route['api/v1/covid/get-historical-data-deaths'] = 'home/getHistoricalDataDeaths';
-$route['api/v1/covid/get-historical-data'] = 'home/getHistoricalData';
-$route['api/v1/covid/get-cases-data'] = 'home/getAPIData';
-
-
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
