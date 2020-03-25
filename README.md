@@ -1,11 +1,12 @@
 # COVID19
 Track and monitor live updates for coronavirus
 
-Features:
-• Realtime updates
-• Latest News
+## Features
+* Realtime updates
+* Latest News
+* Chart statistics
 
 Default theme: 
-• Dark mode
+* Dark mode
 
 Website: https://2019-ncov.kenkarlo.com
