@@ -145,7 +145,7 @@
 																</tr>
 																<tr style="padding-bottom: 10px; width: 100%; color: #000;">
 																	<td width="200">Today Deaths: </td>
-																	<td width="200"><span ><?=$todayDeaths?>/span></td>
+																	<td width="200"><span ><?=$todayDeaths?></span></td>
 																</tr>
 															</table>
 															
