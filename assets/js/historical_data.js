@@ -1,1 +1,392 @@
-var _0x4167=['#show_active_cases','Connected','<div\x20class=\x22row\x20footer-credits\x22\x20>','<li><a\x20target=\x22_blank\x22\x20rel=\x22noopener\x20nofollow\x20noreferrer\x22\x20href=\x22\x22>Worldometers</a></li>','value','#close_cases_wrapper','<h2>Donations:</h2>','</div>','Number\x20of\x20Death\x20Cases','getHours','global','getMinutes','GET','#ff5252','<h2>Referece:</h2>','#_global_death_cases','#__mild_cases','#global_closed_cases','hidden','Number\x20of\x20Recovered\x20Cases','<h2>Source:</h2>','<li><a\x20target=\x22_blank\x22\x20rel=\x22noopener\x22\x20href=\x22https://kenkarlo.com\x22>Ken\x20Karlo</a></li>','#mild_percent_cases_sub','critical','title','#_close_cases_chart','deaths','#chart_wrapper','#ffc107','<div\x20class=\x22col-lg-3\x20col-6\x22>','globalDeathsRecovered','style','#confirmedCaseChart','#hide_close_case','<li><a\x20target=\x22_blank\x22\x20rel=\x22noopener\x20nofollow\x20noreferrer\x22\x20href=\x22https://github.com/CSSEGISandData/COVID-19\x22>CSSEGISandData</a></li>','#global_recovered_case_percent','<li><a\x20target=\x22_blank\x22\x20rel=\x22noopener\x20nofollow\x20noreferrer\x22\x20href=\x22https://www.globe.com.ph/about-us/newsroom/partners/gcash-users-donate-to-fight-covid-19.html\x22>Gcash</a></li>','#global_confirmed_case','Copied:\x20','click','</ul>','<li><a\x20target=\x22_blank\x22\x20rel=\x22noopener\x22\x20href=\x22https://github.com/blankcodes/covid19\x22>Github</a></li>','done','aria-valuenow','<a\x20href=\x22','#confirmed_cases\x20span','closeCases','Copied:','<ul>','getElementById','\x20<span\x20class=\x22fw-500\x20font-15\x20font-fontawesome\x20text-warning\x22>(','\x20<span\x20class=\x22fw-500\x20font-15\x20font-fontawesome\x20text-danger\x22>(','#share_btn_copy','#_recovered_cases','\x20<sup\x20class=\x22font-xs\x22>Today</sup>)</span>','recovered','<h2>Developer:</h2>','Recovered\x20Cases','execCommand','attr','#critical','#footer_wrapper','#__global_recovered_cases','length','#number_death_stat','Connection\x20Error!\x20<a\x20href=\x22#refresh\x22\x20onclick=\x22confirmedCases()\x22><i\x20class=\x22fab\x20fa-refresh></i></a>','#recovered_percent_cases_sub','values','api/v1/covid/get-historical-data','globalPercentRecovered','#time_date_clock\x20.clock','html','Number\x20of\x20Confirmed\x20Cases','#critical_percent_cases_sub','text','#deaths_percent_cases_sub','#show_close_case','timeline','#__global_death_cases','#preload_data','#number_recovered_stat','#_mild_cases','#11c15b','#deaths_cases\x20span','<i\x20class=\x22text-success\x20fa\x20fa-circle\x20font-sm\x22></i>\x20','keys','#recovered_cases\x20span','JSON','removeAttr','<li><a\x20target=\x22_blank\x22\x20rel=\x22noopener\x20nofollow\x20noreferrer\x22\x20href=\x22https://news.google.com\x22>Google\x20News</a></li>','#_global_recovered_cases','<li><a\x20target=\x22_blank\x22\x20rel=\x22noopener\x20nofollow\x20noreferrer\x22\x20href=\x22https://www.facebook.com/OfficialDOHgov/\x22>DOH\x20Facebook</a></li>','api/v1/covid/latest-news','deathsCasesPercent','Death\x20Cases','#__recovered_cases','#recoveredCaseChart','recoverCasesPercent','ajax','<div\x20class=\x22container\x22>','#latest-news-wrapper','api/v1/covid/web-scrape','line','cases','activeCases','<li><a\x20target=\x22_blank\x22\x20rel=\x22noopener\x20nofollow\x20noreferrer\x22\x20href=\x22https://github.com/NovelCOVID/API\x22>NovelCOVID</a></li>','\x20<i\x20class=\x22fa\x20fa-external-link-alt\x20font-xs\x22></i></h5>\x20</a>','<i\x20class=\x22text-danger\x20fa\x20fa-circle\x20font-sm\x22></i>\x20','todayCases','globalDeathsRecovered11','#__critical','#number_cases_stat','#_death_cases','#__death_cases','url','#confirmed_cases_today','#deathCaseChart','<li><a\x20target=\x22_blank\x22\x20rel=\x22noopener\x20nofollow\x20noreferrer\x22\x20href=\x22https://who.int\x22>WHO</a></li>','#closed_cases','mildCasesCasesPercent','#_active_cases','width:\x20'];(function(_0xe09246,_0x41675b){var _0x5e7beb=function(_0x260017){while(--_0x260017){_0xe09246['push'](_0xe09246['shift']());}};_0x5e7beb(++_0x41675b);}(_0x4167,0x9e));var _0x5e7b=function(_0xe09246,_0x41675b){_0xe09246=_0xe09246-0x0;var _0x5e7beb=_0x4167[_0xe09246];return _0x5e7beb;};var base_url;var country;loadDivElements();getCasesData(country);getLatestNews();confirmedCases();startTime();$(_0x5e7b('0x6f'))[_0x5e7b('0x17')](_0x5e7b('0x68'),_0x5e7b('0x68'));$('#show_close_case')['attr'](_0x5e7b('0x68'),_0x5e7b('0x68'));$(_0x5e7b('0x56'))[_0x5e7b('0x17')](_0x5e7b('0x68'),_0x5e7b('0x68'));$(_0x5e7b('0x4b'))['on'](_0x5e7b('0x3'),function(){confirmedCases();});$(_0x5e7b('0x2c'))['on']('click',function(){recoveredCases();});$(_0x5e7b('0x1c'))['on']('click',function(){deathCases();});$(_0x5e7b('0x28'))['on'](_0x5e7b('0x3'),function(){closeCasesChart();});$(_0x5e7b('0x77'))['on']('click',function(){$(this)[_0x5e7b('0x17')](_0x5e7b('0x68'),_0x5e7b('0x68'));$('#_close_cases_chart')['attr'](_0x5e7b('0x68'),_0x5e7b('0x68'));$(_0x5e7b('0x28'))[_0x5e7b('0x34')](_0x5e7b('0x68'));$(_0x5e7b('0x5b'))[_0x5e7b('0x34')](_0x5e7b('0x68'));});$(_0x5e7b('0x10'))['on'](_0x5e7b('0x3'),function(){url=document[_0x5e7b('0xd')]('website_url');document[_0x5e7b('0x16')]('copy');$('#share_btn_copy')[_0x5e7b('0x17')]({'data-original-title':_0x5e7b('0x2')+url[_0x5e7b('0x5a')],'title':_0x5e7b('0xb')+url[_0x5e7b('0x5a')]})['show'];});htmlBody();function htmlBody(){}function getCasesData(_0x1ccf0f){$[_0x5e7b('0x3e')]({'url':base_url+'api/v1/covid/get-cases-data','type':_0x5e7b('0x62'),'dataType':_0x5e7b('0x33'),'data':{'country':_0x1ccf0f}})[_0x5e7b('0x6')](function(_0x57639b){$(_0x5e7b('0x9'))[_0x5e7b('0x23')](_0x57639b[_0x5e7b('0x43')]+_0x5e7b('0xe')+_0x57639b[_0x5e7b('0x48')]+_0x5e7b('0x12'));$(_0x5e7b('0x32'))['html'](_0x57639b[_0x5e7b('0x13')]);$(_0x5e7b('0x2f'))[_0x5e7b('0x23')](_0x57639b[_0x5e7b('0x70')]+_0x5e7b('0xf')+_0x57639b['todayDeaths']+'\x20<sup\x20class=\x22font-xs\x22>Today</sup>)</span>');$(_0x5e7b('0x52'))[_0x5e7b('0x26')](_0x57639b[_0x5e7b('0xa')]);$(_0x5e7b('0x4f'))[_0x5e7b('0x23')]('<span\x20class=\x22fw-600\x20text-warning\x22><i\x20class=\x22fas\x20fa-caret-up\x20font-sm\x22></i>\x20'+_0x57639b[_0x5e7b('0x48')]+'</span>');$(_0x5e7b('0x11'))[_0x5e7b('0x23')](_0x5e7b('0x30')+_0x57639b['recovered']);$(_0x5e7b('0x3b'))['attr'](_0x5e7b('0x75'),_0x5e7b('0x55')+_0x57639b[_0x5e7b('0x3d')]+'%')[_0x5e7b('0x17')](_0x5e7b('0x7'),_0x57639b['recoverCasesPercent']);$(_0x5e7b('0x1e'))[_0x5e7b('0x23')]('('+_0x57639b[_0x5e7b('0x3d')]+'%)');$(_0x5e7b('0x4c'))[_0x5e7b('0x23')](_0x5e7b('0x47')+_0x57639b[_0x5e7b('0x70')]);$(_0x5e7b('0x4d'))['attr']({'style':'width:\x20'+_0x57639b['deathsCasesPercent']+'%','aria-valuenow':_0x57639b[_0x5e7b('0x39')]});$(_0x5e7b('0x27'))[_0x5e7b('0x26')]('('+_0x57639b[_0x5e7b('0x39')]+'%)');$(_0x5e7b('0x54'))['text'](_0x57639b[_0x5e7b('0x44')]);$(_0x5e7b('0x2d'))['html']('<i\x20class=\x22text-primary\x20fa\x20fa-circle\x20font-sm\x22></i>\x20'+_0x57639b['mildCases']);$(_0x5e7b('0x6c'))[_0x5e7b('0x23')]('('+_0x57639b[_0x5e7b('0x53')]+'%)');$(_0x5e7b('0x66'))[_0x5e7b('0x17')]('style',_0x5e7b('0x55')+_0x57639b[_0x5e7b('0x53')]+'%')[_0x5e7b('0x17')](_0x5e7b('0x7'),_0x57639b[_0x5e7b('0x53')]);$(_0x5e7b('0x18'))['html'](_0x5e7b('0x47')+_0x57639b[_0x5e7b('0x6d')]);$(_0x5e7b('0x25'))[_0x5e7b('0x23')]('('+_0x57639b['criticalCasesCasesPercent']+'%)');$(_0x5e7b('0x4a'))[_0x5e7b('0x17')]({'style':_0x5e7b('0x55')+_0x57639b['criticalCasesCasesPercent']+'%','aria-valuenow':_0x57639b['criticalCasesCasesPercent']});$(_0x5e7b('0x67'))['html'](_0x57639b['globalTotalCloseCases']);$(_0x5e7b('0x1'))[_0x5e7b('0x23')](_0x57639b[_0x5e7b('0x60')][_0x5e7b('0x43')]);$(_0x5e7b('0x36'))[_0x5e7b('0x23')](_0x5e7b('0x30')+_0x57639b[_0x5e7b('0x60')][_0x5e7b('0x13')]);$(_0x5e7b('0x65'))[_0x5e7b('0x23')](_0x5e7b('0x47')+_0x57639b[_0x5e7b('0x60')][_0x5e7b('0x70')]);$(_0x5e7b('0x79'))[_0x5e7b('0x23')]('('+_0x57639b[_0x5e7b('0x21')]+'%)');$('#global_death_case_percent')[_0x5e7b('0x23')]('('+_0x57639b['globalDeathsRecovered']+'%)');$(_0x5e7b('0x1a'))[_0x5e7b('0x17')]('style','width:\x20'+_0x57639b[_0x5e7b('0x21')]+'%')[_0x5e7b('0x17')]('aria-valuenow',_0x57639b['globalPercentRecovered']);$(_0x5e7b('0x2a'))['attr'](_0x5e7b('0x75'),'width:\x20'+_0x57639b[_0x5e7b('0x74')]+'%')['attr'](_0x5e7b('0x7'),_0x57639b[_0x5e7b('0x49')]);});}function confirmedCases(){$(_0x5e7b('0x71'))[_0x5e7b('0x17')](_0x5e7b('0x68'),_0x5e7b('0x68'));$('#confirmedCaseChart')[_0x5e7b('0x34')](_0x5e7b('0x68'));$(_0x5e7b('0x2b'))[_0x5e7b('0x34')]('hidden');$[_0x5e7b('0x3e')]({'url':base_url+_0x5e7b('0x20'),'type':_0x5e7b('0x62'),'dataType':_0x5e7b('0x33'),'data':{'country':country}})[_0x5e7b('0x6')](function(_0x1d400c){if(_0x1d400c['status']==_0x5e7b('0x57')){$(_0x5e7b('0x50'))[_0x5e7b('0x17')](_0x5e7b('0x68'),_0x5e7b('0x68'));$(_0x5e7b('0x3c'))[_0x5e7b('0x17')](_0x5e7b('0x68'),_0x5e7b('0x68'));$('#show_close_case')[_0x5e7b('0x34')](_0x5e7b('0x68'));cases=_0x1d400c['timeline']['cases'];dateCases=Object[_0x5e7b('0x31')](cases);numberCases=Object['values'](cases);var _0x140ad4=$(_0x5e7b('0x76'));var _0x515cef=new Chart(_0x140ad4,{'type':_0x5e7b('0x42'),'data':{'labels':dateCases,'datasets':[{'label':_0x5e7b('0x24'),'data':numberCases,'backgroundColor':_0x5e7b('0x72'),'borderColor':_0x5e7b('0x72'),'borderWidth':0x1}]},'options':{'scales':{'yAxes':[{'ticks':{'beginAtZero':!![]}}]}}});$(_0x5e7b('0x2b'))['attr'](_0x5e7b('0x68'),_0x5e7b('0x68'));$(_0x5e7b('0x71'))[_0x5e7b('0x34')](_0x5e7b('0x68'));}else{$('#preload_data')[_0x5e7b('0x23')](_0x5e7b('0x1d'));}});}function deathCases(){$(_0x5e7b('0x71'))[_0x5e7b('0x17')]('hidden','hidden');$(_0x5e7b('0x2b'))[_0x5e7b('0x34')](_0x5e7b('0x68'));$(_0x5e7b('0x50'))[_0x5e7b('0x34')](_0x5e7b('0x68'));$[_0x5e7b('0x3e')]({'url':base_url+_0x5e7b('0x20'),'type':'GET','dataType':_0x5e7b('0x33'),'data':{'country':country}})[_0x5e7b('0x6')](function(_0x162a06){$(_0x5e7b('0x76'))[_0x5e7b('0x17')](_0x5e7b('0x68'),'hidden');$('#recoveredCaseChart')[_0x5e7b('0x17')]('hidden',_0x5e7b('0x68'));deaths=_0x162a06[_0x5e7b('0x29')][_0x5e7b('0x70')];dateCases=Object['keys'](deaths);numberCases=Object[_0x5e7b('0x1f')](deaths);var _0x2a5bb4=$(_0x5e7b('0x50'));var _0x1079fe=new Chart(_0x2a5bb4,{'type':_0x5e7b('0x42'),'data':{'labels':dateCases,'datasets':[{'label':_0x5e7b('0x5e'),'data':numberCases,'backgroundColor':_0x5e7b('0x63'),'borderColor':_0x5e7b('0x63'),'borderWidth':0x1}]},'options':{'scales':{'yAxes':[{'ticks':{'beginAtZero':!![]}}]}}});$(_0x5e7b('0x2b'))[_0x5e7b('0x17')](_0x5e7b('0x68'),'hidden');$('#chart_wrapper')[_0x5e7b('0x34')](_0x5e7b('0x68'));});}function recoveredCases(){$(_0x5e7b('0x2b'))[_0x5e7b('0x34')](_0x5e7b('0x68'));$('#chart_wrapper')[_0x5e7b('0x17')](_0x5e7b('0x68'),_0x5e7b('0x68'));$('#recoveredCaseChart')['removeAttr'](_0x5e7b('0x68'));$[_0x5e7b('0x3e')]({'url':base_url+_0x5e7b('0x20'),'type':_0x5e7b('0x62'),'dataType':'JSON','data':{'country':country}})[_0x5e7b('0x6')](function(_0x15033b){$(_0x5e7b('0x76'))[_0x5e7b('0x17')](_0x5e7b('0x68'),_0x5e7b('0x68'));$('#deathCaseChart')['attr'](_0x5e7b('0x68'),_0x5e7b('0x68'));recovered=_0x15033b[_0x5e7b('0x29')][_0x5e7b('0x13')];dateCases=Object[_0x5e7b('0x31')](recovered);numberCases=Object[_0x5e7b('0x1f')](recovered);var _0x3fc5b2=$(_0x5e7b('0x3c'));var _0xc45c3e=new Chart(_0x3fc5b2,{'type':'line','data':{'labels':dateCases,'datasets':[{'label':_0x5e7b('0x69'),'data':numberCases,'backgroundColor':_0x5e7b('0x2e'),'borderColor':_0x5e7b('0x2e'),'borderWidth':0x1}]},'options':{'scales':{'yAxes':[{'ticks':{'beginAtZero':!![]}}]}}});$('#preload_data')['attr'](_0x5e7b('0x68'),_0x5e7b('0x68'));$(_0x5e7b('0x71'))['removeAttr'](_0x5e7b('0x68'));});}function closeCasesChart(){$[_0x5e7b('0x3e')]({'url':base_url+'api/v1/covid/get-historical-data','type':'GET','dataType':_0x5e7b('0x33'),'data':{'country':country}})['done'](function(_0x4909dc){$(_0x5e7b('0x5b'))[_0x5e7b('0x17')](_0x5e7b('0x68'),_0x5e7b('0x68'));$(_0x5e7b('0x6f'))['removeAttr'](_0x5e7b('0x68'));$(_0x5e7b('0x28'))[_0x5e7b('0x17')](_0x5e7b('0x68'),_0x5e7b('0x68'));$(_0x5e7b('0x77'))['removeAttr'](_0x5e7b('0x68'));recovered=_0x4909dc[_0x5e7b('0x29')][_0x5e7b('0x13')];recDateCases=Object[_0x5e7b('0x31')](recovered);recNumCases=Object['values'](recovered);deaths=_0x4909dc[_0x5e7b('0x29')][_0x5e7b('0x70')];dDateCases=Object[_0x5e7b('0x31')](deaths);dNumCases=Object[_0x5e7b('0x1f')](deaths);var _0x300abb=$('#_close_cases_chart');var _0x4fd4fb=new Chart(_0x300abb,{'type':_0x5e7b('0x42'),'data':{'labels':recDateCases,'datasets':[{'label':_0x5e7b('0x15'),'data':recNumCases,'borderColor':_0x5e7b('0x2e'),'borderWidth':0x1},{'label':_0x5e7b('0x3a'),'data':dNumCases,'borderColor':'#ff5252','borderWidth':0x1}]},'options':{'scales':{'xAxes':[{'display':!![]}],'yAxes':[{'display':!![],'type':'logarithmic'}]}}});});}function getLatestNews(){$[_0x5e7b('0x3e')]({'url':base_url+_0x5e7b('0x38'),'type':_0x5e7b('0x62'),'dataType':'JSON','data':{'country':country}})[_0x5e7b('0x6')](function(_0x5556b2){if(_0x5556b2[_0x5e7b('0x1b')]>0x0){string='';for(var _0x55f706 in _0x5556b2['slice'](0x0,0xf)){string+=_0x5e7b('0x8')+_0x5556b2[_0x55f706][_0x5e7b('0x4e')]+'\x22\x20target=\x22_blank\x22\x20rel=\x22noopener\x20nofollow\x22><h5\x20class=\x22font-11\x22>'+_0x5556b2[_0x55f706][_0x5e7b('0x6e')]+_0x5e7b('0x46');}$(_0x5e7b('0x40'))[_0x5e7b('0x23')](string);}});}function webScrape(){$['ajax']({'url':base_url+_0x5e7b('0x41'),'type':_0x5e7b('0x62'),'dataType':'JSON'})[_0x5e7b('0x6')](function(_0x7c043){});}function loadDivElements(){footer='';footer+=_0x5e7b('0x3f')+_0x5e7b('0x58')+_0x5e7b('0x73')+_0x5e7b('0x6a')+_0x5e7b('0xc')+_0x5e7b('0x59')+'<li><a\x20target=\x22_blank\x22\x20rel=\x22noopener\x20nofollow\x20noreferrer\x22\x20href=\x22https://doh.gov.ph\x22>DOH</a></li>'+_0x5e7b('0x37')+_0x5e7b('0x51')+_0x5e7b('0x35')+_0x5e7b('0x4')+_0x5e7b('0x5d')+'<div\x20class=\x22col-lg-3\x20col-6\x22>'+_0x5e7b('0x64')+'<ul>'+_0x5e7b('0x45')+_0x5e7b('0x78')+_0x5e7b('0x4')+'</div>'+_0x5e7b('0x73')+_0x5e7b('0x5c')+_0x5e7b('0xc')+_0x5e7b('0x0')+_0x5e7b('0x4')+_0x5e7b('0x5d')+_0x5e7b('0x73')+_0x5e7b('0x14')+_0x5e7b('0xc')+_0x5e7b('0x5')+_0x5e7b('0x6b')+_0x5e7b('0x4')+_0x5e7b('0x5d')+_0x5e7b('0x5d')+'</div>';setTimeout(function(){$(_0x5e7b('0x19'))[_0x5e7b('0x23')](footer);},0xbb8);}function startTime(){var _0x30b315=new Date();var _0x265b23=_0x30b315[_0x5e7b('0x5f')]();var _0x3ab86d=_0x30b315[_0x5e7b('0x61')]();var _0x165183=_0x30b315['getSeconds']();_0x3ab86d=checkTime(_0x3ab86d);_0x165183=checkTime(_0x165183);$(_0x5e7b('0x22'))[_0x5e7b('0x26')](_0x265b23+':'+_0x3ab86d+':'+_0x165183);var _0x43efcd=setTimeout(startTime,0x1f4);}function checkTime(_0x1899b3){if(_0x1899b3<0xa){_0x1899b3='0'+_0x1899b3;};return _0x1899b3;}
+var base_url;
+var country;
+
+getAPIData(country);
+getLatestNews();
+confirmedCases();
+divElement();
+
+$("#_close_cases_chart").attr('hidden', 'hidden');
+$("#show_close_case").attr('hidden', 'hidden');
+$("#show_active_cases").attr('hidden', 'hidden');
+
+$("#number_cases_stat").on('click', function(){
+    confirmedCases();
+})
+$("#number_recovered_stat").on('click', function(){
+    recoveredCases();
+})
+$("#number_death_stat").on('click', function(){
+    deathCases();
+})
+$("#show_close_case").on('click', function(){
+    closeCasesChart();
+})
+$("#hide_close_case").on('click', function(){
+    $(this).attr('hidden', 'hidden');
+    $('#_close_cases_chart').attr('hidden', 'hidden');
+    $('#show_close_case').removeAttr('hidden');
+    $('#close_cases_wrapper').removeAttr('hidden');
+})
+$("#share_btn_copy").on('click', function(){
+    url = document.getElementById("website_url");
+     // url.select();
+    // url.setSelectionRange(0, 99999); /*For mobile devices*/
+
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+    $('#share_btn_copy').attr({'data-original-title':'Copied: '+url.value, 'title':'Copied:'+url.value}).show
+    // alert("Copied: " + url.value);
+})
+htmlBody();
+function htmlBody(){
+    
+
+}
+function getAPIData(country){
+    // $("#loader").modal('toggle');
+    $.ajax({
+        url: base_url+ 'api/v1/covid/get-cases-data',
+        type: 'GET',
+        dataType: 'JSON',
+        data: {country:country}
+    })
+    .done(function(data){
+    
+        $('#confirmed_cases span').html(data.cases + ' <span class="fw-500 font-15 font-fontawesome text-warning">(' +data.todayCases+' <sup class="font-xs">Today</sup>)</span>');
+        $('#recovered_cases span').html(data.recovered);
+        $('#deaths_cases span').html(data.deaths + ' <span class="fw-500 font-15 font-fontawesome text-danger">(' +data.todayDeaths+' <sup class="font-xs">Today</sup>)</span>');
+        $('#closed_cases').text(data.closeCases);
+        $('#confirmed_cases_today').html('<span class="fw-600 text-warning"><i class="fas fa-caret-up font-sm"></i> ' +data.todayCases+'</span>');
+
+        $('#_recovered_cases').html('<i class="text-success fa fa-circle font-sm"></i> '+data.recovered);
+        $('#__recovered_cases').attr('style', 'width: '+data.recoverCasesPercent+'%').attr('aria-valuenow', data.recoverCasesPercent);
+        $('#recovered_percent_cases_sub').html('('+data.recoverCasesPercent+'%)');
+
+        $('#_death_cases').html('<i class="text-danger fa fa-circle font-sm"></i> '+data.deaths);
+        $('#__death_cases').attr({'style':'width: '+data.deathsCasesPercent+'%', 'aria-valuenow':data.deathsCasesPercent});
+        $('#deaths_percent_cases_sub').text('('+data.deathsCasesPercent+'%)');
+        $('#_active_cases').text(data.activeCases);
+
+        $('#_mild_cases').html('<i class="text-primary fa fa-circle font-sm"></i> '+data.mildCases);
+        $('#mild_percent_cases_sub').html('('+data.mildCasesCasesPercent+'%)');
+        $('#__mild_cases').attr('style', 'width: '+data.mildCasesCasesPercent+'%').attr('aria-valuenow', data.mildCasesCasesPercent);
+
+        $('#critical').html('<i class="text-danger fa fa-circle font-sm"></i> '+data.critical);
+        $('#critical_percent_cases_sub').html('('+data.criticalCasesCasesPercent+'%)');
+        $('#__critical').attr({'style':'width: '+data.criticalCasesCasesPercent+'%', 'aria-valuenow':data.criticalCasesCasesPercent});
+        
+        $("#global_closed_cases").html(data.globalTotalCloseCases)
+        $("#global_confirmed_case").html(data.global.cases)
+        $("#_global_recovered_cases").html('<i class="text-success fa fa-circle font-sm"></i> '+data.global.recovered)
+        $("#_global_death_cases").html('<i class="text-danger fa fa-circle font-sm"></i> '+data.global.deaths)
+
+        $('#global_recovered_case_percent').html('('+data.globalPercentRecovered+'%)');
+        $('#global_death_case_percent').html('('+data.globalDeathsRecovered+'%)');
+
+        $('#__global_recovered_cases').attr('style', 'width: '+data.globalPercentRecovered+'%').attr('aria-valuenow', data.globalPercentRecovered);
+        $('#__global_death_cases').attr('style', 'width: '+data.globalDeathsRecovered+'%').attr('aria-valuenow', data.globalDeathsRecovered11);
+
+        // $("#global_death_case").html(data.global.deaths)
+        // $("#loader").modal('hide');
+    });
+}
+
+function confirmedCases(){
+    $("#chart_wrapper").attr('hidden', 'hidden');
+    $("#confirmedCaseChart").removeAttr('hidden');
+    $("#preload_data").removeAttr('hidden')
+
+    $.ajax({
+        url: base_url+ 'api/v1/covid/get-historical-data',
+        type: 'GET',
+        dataType: 'JSON',
+        data: {country:country}
+    })
+    .done(function(data){
+        if(data.status == 'Connected'){
+            $("#deathCaseChart").attr('hidden','hidden');
+            $("#recoveredCaseChart").attr('hidden','hidden');
+            $("#show_close_case").removeAttr('hidden');
+
+            cases = data.timeline.cases;
+            dateCases = Object.keys(cases);
+            numberCases = Object.values(cases);
+
+            var chart = $('#confirmedCaseChart');
+            var myChart = new Chart(chart, {
+                type: 'line',
+                data: {
+                    labels: dateCases,
+                    datasets: [{
+                    label: 'Number of Confirmed Cases',
+                    data: numberCases,
+                    backgroundColor: '#ffc107',
+                    borderColor: '#ffc107',
+                    borderWidth: 1
+                }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+            $("#preload_data").attr('hidden', 'hidden');
+            $("#chart_wrapper").removeAttr('hidden')
+        }
+        else{
+            $("#preload_data").html('Connection Error! <a href="#refresh" onclick="confirmedCases()"><i class="fab fa-refresh></i></a>' );
+        }
+    })
+}
+function deathCases(){
+    $("#chart_wrapper").attr('hidden', 'hidden');
+    $("#preload_data").removeAttr('hidden')
+    $("#deathCaseChart").removeAttr('hidden');
+    $.ajax({
+        url: base_url+ 'api/v1/covid/get-historical-data',
+        type: 'GET',
+        dataType: 'JSON',
+        data: {country:country}
+    })
+    .done(function(data){
+        $("#confirmedCaseChart").attr('hidden','hidden');
+        $("#recoveredCaseChart").attr('hidden','hidden');
+
+        deaths = data.timeline.deaths;
+        dateCases = Object.keys(deaths);
+        numberCases = Object.values(deaths);
+
+        var chart = $('#deathCaseChart');
+        var myChart = new Chart(chart, {
+            type: 'line',
+            data: {
+                labels: dateCases,
+                datasets: [{
+                label: 'Number of Death Cases',
+                data: numberCases,
+                backgroundColor: '#ff5252',
+                borderColor: '#ff5252',
+                borderWidth: 1
+            }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+        
+        $("#preload_data").attr('hidden', 'hidden');
+        $("#chart_wrapper").removeAttr('hidden')
+    })
+}
+
+function recoveredCases(){
+    $("#preload_data").removeAttr('hidden')
+    $("#chart_wrapper").attr('hidden', 'hidden');
+    $("#recoveredCaseChart").removeAttr('hidden');
+    $.ajax({
+        url: base_url+ 'api/v1/covid/get-historical-data',
+        type: 'GET',
+        dataType: 'JSON',
+        data: {country:country}
+    })
+    .done(function(data){
+        $("#confirmedCaseChart").attr('hidden','hidden');
+        $("#deathCaseChart").attr('hidden','hidden');
+
+        recovered = data.timeline.recovered;
+        dateCases = Object.keys(recovered);
+        numberCases = Object.values(recovered);
+
+        var chart = $('#recoveredCaseChart');
+        var myChart = new Chart(chart, {
+            type: 'line',
+            data: {
+                labels: dateCases,
+                datasets: [{
+                label: 'Number of Recovered Cases',
+                data: numberCases,
+                backgroundColor: '#11c15b',
+                borderColor: '#11c15b',
+                borderWidth: 1
+            }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+        
+        $("#preload_data").attr('hidden', 'hidden');
+        $("#chart_wrapper").removeAttr('hidden')
+    })
+}
+function closeCasesChart(){
+    $.ajax({
+        url: base_url+ 'api/v1/covid/get-historical-data',
+        type: 'GET',
+        dataType: 'JSON',
+        data: {country:country}
+    })
+    .done(function(data){
+        $('#close_cases_wrapper').attr('hidden', 'hidden');
+        $('#_close_cases_chart').removeAttr('hidden');
+        $('#show_close_case').attr('hidden', 'hidden');
+        $("#hide_close_case").removeAttr('hidden');
+
+
+        recovered = data.timeline.recovered;
+        recDateCases = Object.keys(recovered);
+        recNumCases = Object.values(recovered);
+
+        deaths = data.timeline.deaths;
+        dDateCases = Object.keys(deaths);
+        dNumCases = Object.values(deaths);
+        
+        var chart = $('#_close_cases_chart');
+        var myChart = new Chart(chart, {
+            type: 'line',
+            data: {
+                labels: recDateCases,
+                datasets: [{
+                    label: 'Recovered Cases',
+                    data: recNumCases,
+                    // backgroundColor: '#11c15b',
+                    borderColor: '#11c15b',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Death Cases',
+                    data: dNumCases,
+                    // backgroundColor: '#ff5252',
+                    borderColor: '#ff5252',
+                    borderWidth: 1
+                }
+            ]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        display: true,
+                    }],
+                    yAxes: [{
+                        display: true,
+                        type: 'logarithmic',
+                    }]
+                }
+            }
+        });
+
+    })
+}
+
+
+function getLatestNews(){
+    $.ajax({
+        url: base_url+'api/v1/covid/latest-news',
+        type: 'GET',
+        dataType: 'JSON',
+        data: {country:country}
+    })
+    .done(function(data){ 
+        if (data.length > 0){
+            string = '';
+            for(var x in data.slice(0, 15)){
+                string+='<a href="'+data[x].url+'" target="_blank" rel="noopener nofollow"><h5 class="font-11">'+data[x].title+' <i class="fa fa-external-link-alt font-xs"></i></h5> </a>'
+            }
+            $("#latest-news-wrapper").html(string);
+        }
+    })
+}
+
+// webScrape()
+function webScrape(){
+    $.ajax({
+        url: base_url+'api/v1/covid/web-scrape',
+        type: 'GET',
+        dataType: 'JSON',
+    })
+    .done(function(data){ 
+
+    })
+}
+function divElement(){
+    footer = '';
+    footer +='<div class="container">'
+        +'<div class="row footer-credits" >'
+            +'<div class="col-lg-3 col-6">'
+                +'<h2>Source:</h2>'
+                +'<ul>'
+                    +'<li><a target="_blank" rel="noopener nofollow noreferrer" href="https://www.worldometers.info/coronavirus/">Worldometers</a></li>'
+                    +'<li><a target="_blank" rel="noopener nofollow noreferrer" href="https://doh.gov.ph">DOH</a></li>'
+                    +'<li><a target="_blank" rel="noopener nofollow noreferrer" href="https://www.facebook.com/OfficialDOHgov/">DOH Facebook</a></li>'
+                    +'<li><a target="_blank" rel="noopener nofollow noreferrer" href="https://who.int">WHO</a></li>'
+                    +'<li><a target="_blank" rel="noopener nofollow noreferrer" href="https://news.google.com">Google News</a></li>'
+                +'</ul>'
+            +'</div>'
+
+            +'<div class="col-lg-3 col-6">'
+                +'<h2>Referece:</h2>'
+                +'<ul>'
+                    +'<li><a target="_blank" rel="noopener nofollow noreferrer" href="https://github.com/NovelCOVID/API">NovelCOVID</a></li>'
+                    +'<li><a target="_blank" rel="noopener nofollow noreferrer" href="https://github.com/CSSEGISandData/COVID-19">CSSEGISandData</a></li>'
+
+                +'</ul>'
+            +'</div>'
+
+            +'<div class="col-lg-3 col-6">'
+                +'<h2>You might Donate to these agencies:</h2>'
+            +' <ul >'
+                    +'<li><a target="_blank" rel="noopener nofollow noreferrer" href="https://www.facebook.com/tapatdlsu/posts/3126462290738527">Alyansang Tapat sa Lasallista</a></li>'
+                    +'<li><a target="_blank" rel="noopener nofollow noreferrer" href="https://www.facebook.com/ADMUSanggu/posts/101573834365030757">Ateneo de Manila University</a></li>'
+                    +'<li><a target="_blank" rel="noopener nofollow noreferrer" href="https://www.facebook.com/OfficialCaritasManila/posts/10156685011801631">Caritas Manila</a></li>'
+                    +'<li><a target="_blank" rel="noopener nofollow noreferrer" href="https://twitter.com/mentalhealthph/status/1239754942925000705">MentalHealthPH</a></li>'
+                    +'<li><a target="_blank" rel="noopener nofollow noreferrer" href="https://twitter.com/juansparkyl/status/1240176858160746496?s=21">JuanSpark Youth Leaders</a></li>'
+                    +'<li class="text-left"><a target="_blank" rel="noopener nofollow noreferrer" href="https://www.facebook.com/LawyersForDoctorsPhilippines/posts/105968464374903?__xts__[0]=68.ARCkdTX29beFRnxTIQfp4kWNkBfQwM_WtQ0XkNgXJl4tTNaAyGHnFJhv-sPx7EOsS5enSYKiSqlH4R_5oFeG3C_lopVnFB3I6VH8nu_TSS8c7PkleBG_erh6z3smPzj13m27z29YOJaaGkxSHj_fh1bcB5H0dKD7r0t1_Cn3o8J_A_ngvsqfhGIEpsiwo2SsoHpgO1nAcYLg-KxqR9IdYrvSyOTsUyggBzL0Ohvakkz5AsitaAwxjRt_z6tZ7-Mht42EIS5za03nl0v0qfV69jOC_lFmAsWr7REf1BgJOlFYIq6J1epRMLStaALo2N4crJL1uesID1dKNM_HSr7sXiU&__tn__=-R">Lawyers for Doctors </a></li>'
+                    +'<li class="text-left"><a target="_blank" rel="noopener nofollow noreferrer" href="https://www.facebook.com/www.pametinc.org/photos/a.10152246379996150/10156719210116150/?type=3&theater">Philippine Association of Medical Technologists, Inc</a></li>'
+                    +'<li><a class="text-left" target="_blank" rel="noopener nofollow noreferrer" href="https://web.facebook.com/obphil/photos/a.10150183060893968/10158888051408968/?type=3&theater">Operation Blessing Foundation Philippines Inc. </a></li>'
+                +'</ul>'
+        +'</div>'
+
+            +'<div class="col-lg-3 col-6">'
+                +'<h2>Developer:</h2>'
+            +' <ul>'
+                    +'<li><a target="_blank" rel="noopener" href="https://github.com/blankcodes/covid19">Github</a></li>'
+                    +'<li><a target="_blank" rel="noopener" href="https://kenkarlo.com">Ken Karlo</a></li>'
+                +'</ul>'
+        +' </div>'
+        +'</div>'
+    +'</div>'
+    $('#footer_wrapper').html(footer);
+}
+startTime()
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    $("#time_date_clock .clock").html( h + ":" + m + ":" + s);
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}

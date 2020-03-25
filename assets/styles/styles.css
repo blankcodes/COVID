@@ -474,12 +474,12 @@ background-color: transparent !important;
 .footer-credits h2{
     font-size: 12pt;
     font-weight: 600;
-    color: #747e9d;
+    color: #8b95b5;
 }
 .footer-credits ul li{
     list-style-type: none;
 }
-.footer-credits ul li a{
+.footer-credits ul li{
     margin-left: -40px;
     font-size: 11pt;
 }

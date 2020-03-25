@@ -15,7 +15,7 @@
     <div class="footer-element">
         <div class="container ">
             <div class="text-center margin-top-20">
-                Philippines COVID-19 Updates. &copy; <?=date('Y')?>
+                &copy; <?=date('Y')?> Philippines COVID-19 Updates
             </div>
         </div>
     </div>
