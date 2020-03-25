@@ -1,4 +1,4 @@
-# COVID19 tracket and realtime updates
+# COVID19 tracker and realtime updates
 Track and monitor live updates for coronavirus
 
 ## Features
