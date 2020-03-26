@@ -19,17 +19,15 @@ class Scheduler_model extends CI_Model {
             'recovered'=>$data->recovered,
             'activeCases'=> $data->cases - $data->recovered - $data->deaths,
         );
-
-        if(!isset($this->session->cases)){
-            $this->session->set_tempdata($dataCases, 610);
-        }
-        
-        if($data->cases > $this->session->cases){
-            $notify['newCase'] = 'New Confirmed Cases Added';
-            $this->notifyUsers($dataCases); /* send email for notification if there's new confirmed cases*/
+        $notify['newCase'] = 'None so far :)';
+        if(isset($this->session->cases)){
+            if($data->cases > $this->session->cases){
+                $notify['newCase'] = 'New Confirmed Cases Added';
+                $this->notifyUsers($dataCases); /* send email for notification if there's new confirmed cases*/
+            }
         }
         else{
-            $notify['newCase'] = 'None so far :)';
+            $this->session->set_tempdata($dataCases, 420);
         }
 
         // test cron

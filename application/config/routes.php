@@ -49,6 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+$route['api/v1/email/save'] = 'Auth/saveEmail';
 $route['api/v1/covid/notify-scheduler'] = 'Schedule/getCasesDataNotify';
 $route['api/v1/covid/web-scrape'] = 'home/webScrape';
 $route['api/v1/covid/latest-news'] = 'home/getRssFeed';

@@ -118,14 +118,10 @@ class Api_model extends CI_Model {
     //     }
     //     $this->output->set_content_type('application/json')->set_output(json_encode($data));
     // }
-    public function webScrape(){
+    public function webScrape() {
         require_once(APPPATH.'libraries/simple_html_dom.php');
-
         $html = file_get_html('https://kenkarlo.com');
-
         $data = $html->find('title',0);
-
-        
         var_dump($data); 
         // $data['alert'] = $html->find('[div class="external-html"].strong');
         // $this->output->set_content_type('application/json')->set_output(json_encode($data));
