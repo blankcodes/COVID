@@ -6,8 +6,15 @@ class Schedule extends CI_Controller {
     function __construct(){
         parent::__construct();
         $this->load->model('Scheduler_model');
+        $this->load->library('email');
     }
     public function getCasesDataNotify(){
         $this->Scheduler_model->getCasesDataNotify();
+    }
+    public function showEmail(){ /* show email*/
+		$this->load->view('email/email_notify');
+    }
+    public function sendEmail(){ /* test email*/
+		$this->Scheduler_model->sendEmail();
     }
 }

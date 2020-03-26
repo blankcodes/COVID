@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>Update Nofitication for COVID-19</title>
@@ -19,8 +19,10 @@
 			a{
 				outline:none;
 				color:#40aceb;
-				text-decoration:underline;
+				text-decoration:none;
 			}
+			.text-center{text-align:center}
+			.text-right{text-align:right}
 			a:hover{text-decoration:none !important;}
 			.nav a:hover{text-decoration:underline !important;}
 			.title a:hover{text-decoration:underline !important;}
@@ -35,7 +37,63 @@
 			}
 			table td {border-collapse: collapse !important;}
 			.ExternalClass, .ExternalClass a, .ExternalClass span, .ExternalClass b, .ExternalClass br, .ExternalClass p, .ExternalClass div{line-height:inherit;}
+			.table-bordered {
+				border: 1px solid #dee2e6;
+			}
+			.table {
+				width: 100%;
+				max-width: 100%;
+				margin-bottom: 1rem;
+				background-color: transparent;
+			}
+			table {
+				border-collapse: collapse;
+			}
+			table td {
+				border-collapse: collapse !important;
+			}
+			table td {
+				border-collapse: collapse !important;
+			}
+			.table-bordered td, .table-bordered th {
+				border: 1px solid #dee2e6;
+			}
+			.table td, .table th {
+				padding: .75rem;
+				vertical-align: top;
+				border-top: 1px solid #dee2e6;
+			}
+			table td {
+				border-collapse: collapse !important;
+			}
+			.btn-primary {
+				color: #fff !important;
+				background-color: #007bff;
+				border-color: #007bff;
+			}
+			.btn {
+				display: inline-block;
+				font-weight: 400;
+				text-align: center;
+				white-space: nowrap;
+				vertical-align: middle;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				border: 1px solid transparent;
+					border-top-color: transparent;
+					border-right-color: transparent;
+					border-bottom-color: transparent;
+					border-left-color: transparent;
+				padding: .375rem .75rem;
+				font-size: 1rem;
+				line-height: 1.5;
+				border-radius: .25rem;
+				transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+			}
 			@media only screen and (max-width:500px) {
+				.email-div{font-size:15pt !important;}
 				table[class="flexible"]{width:100% !important;}
 				table[class="center"]{
 					float:none !important;
@@ -116,42 +174,47 @@
 											<table width="100%" cellpadding="0" cellspacing="0">
 												
 												<tr>
-													<td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" style="color: #000; padding-bottom: 25px; font:normal 16px/25px Poppins, Helvetica, sans-serif;">
+													<td class="email-div" data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" style="color: #000; padding-bottom: 25px; font:normal 16px/25px Poppins, Helvetica, sans-serif;">
 														Hello <?=$email_address;?>,
 													</td>
 												</tr>
 												<tr>
-													<td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;"  style="font:normal 15px/24px Poppins, Helvetica, sans-serif; color:#000; padding:0 0 20px;">
+													<td class="email-div" data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;"  style="font:normal 15px/24px Poppins, Helvetica, sans-serif; color:#000; padding:0 0 20px;">
 														<div style="padding-bottom: 20px;">
-															This is to notify you that there's a new update for related to COVID-19 cases.
+															This is to notify you that there's a new update related to COVID-19 cases.
 														</div>
-														<div style="padding-bottom: 20px;">
-															<table>
-																<tr style="padding-bottom: 10px; width: 100%; color: #000;">
+														<div style="font:normal 15px/24px Poppins, Helvetica, sans-serif; color:#000; padding-bottom: 20px;">
+															<div style="padding-bottom: 5px;" class="email-div">
+																COVID-10 Cases in the <?=$country?>.
+															</div>
+															<table class="table table-bordered table-striped email-div" style="font:normal 15px/24px Poppins, Helvetica, sans-serif;">
+																<tr style="padding-bottom: 5px; width: 100%; color: #000;">
 																	<td width="200">Confirmed Cases: </td>
-																	<td width="200"><span ><?=$cases?></span></td>
+																	<td width="200" class="text-right"><span ><?=$cases?></span></td>
 																</tr>
-																<tr style="padding-bottom: 10px; width: 100%; color: #000;">
-																	<td width="200">Today Confirmed Cases: </td>
-																	<td width="200"><span ><?=$todayCases?></td>
+																<tr style="padding-bottom: 5px; width: 100%; color: #000;">
+																	<td width="200">Confirmed Cases Today: </td>
+																	<td width="200" class="text-right"><span ><?=$todayCases?></td>
 																</tr>
 																<tr style="padding-bottom: 10px; width: 100%; color: #000;">
 																	<td width="200">Recovered: </td>
-																	<td width="200"><span ><?=$recovered?></span></td>
+																	<td width="200" class="text-right"><span ><?=$recovered?></span></td>
 																</tr>
 																<tr style="padding-bottom: 10px; width: 100%; color: #000;">
 																	<td width="200">Deaths: </td>
-																	<td width="200"><span ><?=$deaths?></span></td>
+																	<td width="200" class="text-right"><span ><?=$deaths?></span></td>
 																</tr>
 																<tr style="padding-bottom: 10px; width: 100%; color: #000;">
-																	<td width="200">Today Deaths: </td>
-																	<td width="200"><span ><?=$todayDeaths?></span></td>
+																	<td width="200">Deaths Today: </td>
+																	<td width="200" class="text-right"2><span ><?=$todayDeaths?></span></td>
 																</tr>
 															</table>
 															
 														</div>
 														
-														<div style="padding-top: 15px;">
+														
+														<div style="padding-top: 0px;" style="text-center">
+															<a href="https://2019-ncov.kenkarlo.com/" class="btn btn-primary email-div">View More Details</a>
 														</div>
 													</td>
 												</tr>
@@ -179,7 +242,7 @@
 												<tr class="table-holder">
 													<th class="tfoot" width="400" align="left" style="vertical-align:top; padding:0;">
 														<table width="100%" cellpadding="0" cellspacing="0">
-															<tr>
+															<tr class="text-center">
 																<td data-color="text" data-link-color="link text color" data-link-style="text-decoration:underline; color:#797c82;" class="aligncenter" style="font:12px/16px Arial, Helvetica, sans-serif; color:#797c82; padding:0 0 10px;">
 																	Don't want to receive this notification? Unsubscribe <a href="#">here</a>.
 																</td>
