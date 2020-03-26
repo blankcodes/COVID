@@ -5,7 +5,11 @@ getAPIData(country);
 getLatestNews();
 confirmedCases();
 divElement();
+startTime();
 
+$("#subscribe_notification").on('click', function(){
+    $('#notify_modal').modal('toggle');
+})
 $("#_close_cases_chart").attr('hidden', 'hidden');
 $("#show_close_case").attr('hidden', 'hidden');
 $("#show_active_cases").attr('hidden', 'hidden');
@@ -27,6 +31,26 @@ $("#hide_close_case").on('click', function(){
     $('#_close_cases_chart').attr('hidden', 'hidden');
     $('#show_close_case').removeAttr('hidden');
     $('#close_cases_wrapper').removeAttr('hidden');
+})
+$("#save_email").on('click', function(e){
+    e.preventDefault();
+    email = $("#subs_email").val()
+    if(email == '' || !email){
+        const toast = swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 9000
+        });
+        toast({
+            type: 'error',
+            title: 'Email is required !'
+        });
+    }
+    else{
+        $("#save_email").text('Saving...').attr('disabled','disabled');
+        saveSubscriptionEmail(email);
+    }
 })
 $("#share_btn_copy").on('click', function(){
     url = document.getElementById("website_url");
@@ -351,7 +375,7 @@ function divElement(){
             +'</div>'
 
             +'<div class="col-lg-3 col-6">'
-                +'<h2>You might Donate to these agencies:</h2>'
+                +'<h2>You might Donate to these agencies/org.:</h2>'
             +' <ul >'
                     +'<li><a target="_blank" rel="noopener nofollow noreferrer" href="https://www.facebook.com/tapatdlsu/posts/3126462290738527">Alyansang Tapat sa Lasallista</a></li>'
                     +'<li><a target="_blank" rel="noopener nofollow noreferrer" href="https://www.facebook.com/ADMUSanggu/posts/101573834365030757">Ateneo de Manila University</a></li>'
@@ -375,7 +399,7 @@ function divElement(){
     +'</div>'
     $('#footer_wrapper').html(footer);
 }
-startTime()
+
 function startTime() {
     var today = new Date();
     var h = today.getHours();
@@ -389,4 +413,42 @@ function startTime() {
 function checkTime(i) {
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
+}
+function saveSubscriptionEmail(email){
+    $.ajax({
+        url: base_url+'api/v1/email/save',
+        type: 'POST',
+        data: {email:email}
+    })
+    .done(function(data){
+        if (data.resultStatus == 'success'){
+            const toast = swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 9000
+            });
+    
+            toast({
+                type: 'success',
+                title: 'You are now subscribe for the realtime updates !'
+            });
+            $("#notify_modal").modal('hide');
+        }
+        else if (data.resultStatus == 'exist'){
+            const toast = swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 9000
+            });
+    
+            toast({
+                type: 'warning',
+                title: 'Email already subscribed !'
+            });
+        }
+        $("#save_email").text('Save').removeAttr('disabled');
+        $("#subs_email").val('');
+    })
 }

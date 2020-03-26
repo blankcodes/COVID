@@ -447,6 +447,38 @@ background-color: transparent !important;
     }
 }
 /* end while data is not loaded */
+/* floating placeholder */
+.emailDiv {
+    position: relative;
+}
+/* .emailDiv input:focus ~ .floating-placeholder, */
+.emailDiv input:not(:focus):valid ~ .floating-placeholder{
+    top: 9px !important;
+    left: 13px !important;
+    font-size: 16px !important;
+    opacity: 1 !important;
+}
+.inputEmail {
+    font-size: 16px;
+    height: 45px;
+    width: 100%;
+}
+.floating-placeholder {
+    position: absolute;
+    pointer-events: none;
+    left: 13px;
+    top: -11px;
+    font-size: 13.5px;
+    transition: 0.2s ease all;
+    background: #fff;
+    padding: 0px 2px;
+}
+/* end floating placeholder */
+/* button round*/
+.btn-round{
+    border-radius: 20px;
+    padding: 7px 15px;
+}
 .icons-tab-btn{
     position: absolute;
     right: 40px;
@@ -492,3 +524,14 @@ background-color: transparent !important;
 .modal-footer{
     border-top: 0px;
 }
+.btn-notify{
+    position: fixed;
+    right: 15px;
+    bottom: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,.03);
+    background: rgba(70,128,255,.2);
+    font-size: 24pt;
+    text-align: center;
+    padding: 9px 16px 14px 16px;
+}
+
