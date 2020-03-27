@@ -71,7 +71,7 @@ class Api_model extends CI_Model {
     }
     public function getHistoricalData(){
         $countryInput = $this->input->get('country');
-        $url = 'https://corona.lmao.ninja/v2/historical'.$countryInput;
+        $url = 'https://corona.lmao.ninja/v2/historical/'.$countryInput;
         $data = json_decode(file_get_contents($url, false));
         if($data){
             $data = array(
