@@ -185,7 +185,7 @@
 														</div>
 														<div style="font:normal 15px/24px Poppins, Helvetica, sans-serif; color:#000; padding-bottom: 20px;">
 															<div style="padding-bottom: 5px;" class="email-div">
-																COVID-10 Cases in the <?=$country?>.
+																COVID-19 Cases in the <?=$country?>.
 															</div>
 															<table class="table table-bordered table-striped email-div" style="font:normal 15px/24px Poppins, Helvetica, sans-serif;">
 																<tr style="padding-bottom: 5px; width: 100%; color: #000;">
