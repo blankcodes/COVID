@@ -34,23 +34,9 @@ $("#hide_close_case").on('click', function(){
 })
 $("#save_email").on('click', function(e){
     e.preventDefault();
-    email = $("#subs_email").val()
-    if(email == '' || !email){
-        const toast = swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 9000
-        });
-        toast({
-            type: 'error',
-            title: 'Email is required !'
-        });
-    }
-    else{
-        $("#save_email").text('Saving...').attr('disabled','disabled');
-        saveSubscriptionEmail(email);
-    }
+    email_address = $("#subs_email").val()
+    $("#save_email").text('Saving...').attr('disabled','disabled');
+    saveSubscriptionEmail(email_address);
 })
 $("#share_btn_copy").on('click', function(){
     url = document.getElementById("website_url");
@@ -414,11 +400,11 @@ function checkTime(i) {
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
 }
-function saveSubscriptionEmail(email){
+function saveSubscriptionEmail(email_address){
     $.ajax({
         url: base_url+'api/v1/email/save',
         type: 'POST',
-        data: {email:email}
+        data: {email_address:email_address}
     })
     .done(function(data){
         if (data.resultStatus == 'success'){
@@ -428,24 +414,22 @@ function saveSubscriptionEmail(email){
                 showConfirmButton: false,
                 timer: 9000
             });
-    
             toast({
                 type: 'success',
                 title: 'You are now subscribe for the realtime updates !'
             });
             $("#notify_modal").modal('hide');
         }
-        else if (data.resultStatus == 'exist'){
+        else if (data.resultStatus == 'fail'){
             const toast = swal.mixin({
                 toast: true,
                 position: 'top-end',
                 showConfirmButton: false,
                 timer: 9000
             });
-    
             toast({
-                type: 'warning',
-                title: 'Email already subscribed !'
+                type: 'error',
+                title: data.resultMsg
             });
         }
         $("#save_email").text('Save').removeAttr('disabled');
