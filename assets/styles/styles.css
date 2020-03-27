@@ -451,28 +451,29 @@ background-color: transparent !important;
 .emailDiv {
     position: relative;
 }
-/* .emailDiv input:focus ~ .floating-placeholder, */
-.emailDiv input:not(:focus):valid ~ .floating-placeholder{
-    top: 9px !important;
-    left: 13px !important;
-    font-size: 16px !important;
-    opacity: 1 !important;
+.floating-placeholder{
+    left: 13px;
+    top: -10px;
+    font-size: 13px;
+    opacity: 1;
+    position: absolute;
+    background: #fff; 
 }
+
+/* .emailDiv input:focus ~ .floating-placeholder {
+    bottom: 11px;
+    left: 13px;
+    top: 0px;
+    font-size: 13px;
+    opacity: 1;
+    position: absolute;
+} */
+
 .inputEmail {
     font-size: 16px;
     height: 45px;
-    width: 100%;
 }
-.floating-placeholder {
-    position: absolute;
-    pointer-events: none;
-    left: 13px;
-    top: -11px;
-    font-size: 13.5px;
-    transition: 0.2s ease all;
-    background: #fff;
-    padding: 0px 2px;
-}
+
 /* end floating placeholder */
 /* button round*/
 .btn-round{

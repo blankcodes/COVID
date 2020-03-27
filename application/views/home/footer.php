@@ -22,7 +22,7 @@
                         Enter your email address
                     </div>
                    <div class="emailDiv">
-                        <input type="email" class="form-control inputEmail" id="subs_email">
+                        <input type="text" class="form-control inputEmail" id="subs_email" />
                         <span class="floating-placeholder">Email address</span>
                    </div>
                 </div>
