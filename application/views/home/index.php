@@ -69,8 +69,8 @@ SOFTWARE.
     </script>
 </head>
 <body>
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=576747789395855&autoLogAppEvents=1"></script>
+    <!-- <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=576747789395855&autoLogAppEvents=1"></script> -->
     <div class="container margin-top-20">
         <div class="text-center feature-img-div">
             <img class="img-fluid" draggable="false" alt="Philippines COVID-19 Updates" src="<?=base_url('assets/img/title-cover.jpg')?>">
@@ -413,7 +413,7 @@ SOFTWARE.
                             Get protected against COVID-19 <i class="fas fa-stethoscope font-sm"></i>
                         </div>
                         <div class="embed-responsive" id="video_wrapper_element">
-                            <div class="fb-video" data-href="https://www.facebook.com/OfficialDOHgov/videos/876618819444243/" data-width="500" data-show-text="false"></div>
+                            <!-- <div class="fb-video" data-href="https://www.facebook.com/OfficialDOHgov/videos/876618819444243/" data-width="500" data-show-text="false"></div> -->
 
                                                
                         </div>
