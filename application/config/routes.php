@@ -57,7 +57,6 @@ $route['api/v1/covid/get-historical-data-deaths'] = 'home/getHistoricalDataDeath
 $route['api/v1/covid/get-historical-data'] = 'home/getHistoricalData';
 $route['api/v1/covid/get-cases-data'] = 'home/getAPIData';
 
-
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
