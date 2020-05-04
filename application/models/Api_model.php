@@ -5,7 +5,7 @@ class Api_model extends CI_Model {
     public function getAPIData(){
         $globalRecord = $this->globalRecordData();
         $countryInput = $this->input->get('country');
-        $url = 'https://corona.lmao.ninja/countries/'.$countryInput;
+        $url = 'https://disease.sh/v2/countries/'.$countryInput;
         $data = json_decode(file_get_contents($url, false));
         
         $dataInfo = array(
@@ -43,7 +43,7 @@ class Api_model extends CI_Model {
 
     }
     public function getCasesData($country = 'philippines'){
-        $url = 'https://corona.lmao.ninja/countries/'.$country;
+        $url = 'https://disease.sh/v2/countries/'.$country;
         $data = json_decode(file_get_contents($url, false));
         
         $dataInfo = array(
@@ -83,7 +83,7 @@ class Api_model extends CI_Model {
         $this->output->set_content_type('application/json')->set_output(json_encode($data));
     }
     public function globalRecordData(){
-        $url = 'https://corona.lmao.ninja/all';
+        $url = 'https://disease.sh/v2/all';
         $data = json_decode(file_get_contents($url, false));
         return $data;
     }
