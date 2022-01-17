@@ -12,7 +12,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Get realtime updates for COVID-19 cases.</h5>
+                    <h5 class="modal-title">Get Realtime Updates for COVID cases.</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -27,7 +27,7 @@
                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-dark btn-round" id="save_email">Save</button>
+                    <button type="button" class="btn btn-dark btn-round" disabled="disabled" id="save_email">Save</button>
                     <button type="button" class="btn btn-secondary btn-round" data-dismiss="modal">Close</button>
                 </div>
             </div>

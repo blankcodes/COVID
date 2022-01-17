@@ -56,16 +56,16 @@ function htmlBody(){
 function getAPIData(country){
     // $("#loader").modal('toggle');
     $.ajax({
-        url: base_url+ 'api/v1/covid/get-cases-data',
+        url: base_url+ 'api/v1/covid/_get_cases_data',
         type: 'GET',
         dataType: 'JSON',
         data: {country:country}
     })
     .done(function(data){
     
-        $('#confirmed_cases span').html(data.cases + ' <span class="fw-500 font-15 font-fontawesome text-warning">(' +data.todayCases+' <sup class="font-xs">Today</sup>)</span>');
+        $('#confirmed_cases span').html(data.cases + ' <span class="fw-500 font-10 text-warning">(' +data.todayCases+' <sup class="font-9">Today</sup>)</span>');
         $('#recovered_cases span').html(data.recovered);
-        $('#deaths_cases span').html(data.deaths + ' <span class="fw-500 font-15 font-fontawesome text-danger">(' +data.todayDeaths+' <sup class="font-xs">Today</sup>)</span>');
+        $('#deaths_cases span').html(data.deaths + ' <span class="fw-500 font-10 text-danger">(' +data.todayDeaths+' <sup class="font-9">Today</sup>)</span>');
         $('#closed_cases').text(data.closeCases);
         $('#confirmed_cases_today').html('<span class="fw-600 text-warning"><i class="fas fa-caret-up font-sm"></i> ' +data.todayCases+'</span>');
 
@@ -87,9 +87,9 @@ function getAPIData(country){
         $('#__critical').attr({'style':'width: '+data.criticalCasesCasesPercent+'%', 'aria-valuenow':data.criticalCasesCasesPercent});
         
         $("#global_closed_cases").html(data.globalTotalCloseCases)
-        $("#global_confirmed_case").html(data.global.cases)
-        $("#_global_recovered_cases").html('<i class="text-success fa fa-circle font-sm"></i> '+data.global.recovered)
-        $("#_global_death_cases").html('<i class="text-danger fa fa-circle font-sm"></i> '+data.global.deaths)
+        $("#global_confirmed_case").html(data.totalGlobalCase)
+        $("#_global_recovered_cases").html('<i class="text-success fa fa-circle font-sm"></i> '+data.totalGlobalRecoveredCase)
+        $("#_global_death_cases").html('<i class="text-danger fa fa-circle font-sm"></i> '+data.totalGlobalDeathCase)
 
         $('#global_recovered_case_percent').html('('+data.globalPercentRecovered+'%)');
         $('#global_death_case_percent').html('('+data.globalDeathsRecovered+'%)');
@@ -108,7 +108,7 @@ function confirmedCases(){
     $("#preload_data").removeAttr('hidden')
 
     $.ajax({
-        url: base_url+ 'api/v1/covid/get-historical-data',
+        url: base_url+ 'api/v1/covid/_get_historical_data',
         type: 'GET',
         dataType: 'JSON',
         data: {country:country}
@@ -159,7 +159,7 @@ function deathCases(){
     $("#preload_data").removeAttr('hidden')
     $("#deathCaseChart").removeAttr('hidden');
     $.ajax({
-        url: base_url+ 'api/v1/covid/get-historical-data',
+        url: base_url+ 'api/v1/covid/_get_historical_data',
         type: 'GET',
         dataType: 'JSON',
         data: {country:country}
@@ -206,7 +206,7 @@ function recoveredCases(){
     $("#chart_wrapper").attr('hidden', 'hidden');
     $("#recoveredCaseChart").removeAttr('hidden');
     $.ajax({
-        url: base_url+ 'api/v1/covid/get-historical-data',
+        url: base_url+ 'api/v1/covid/_get_historical_data',
         type: 'GET',
         dataType: 'JSON',
         data: {country:country}
@@ -249,7 +249,7 @@ function recoveredCases(){
 }
 function closeCasesChart(){
     $.ajax({
-        url: base_url+ 'api/v1/covid/get-historical-data',
+        url: base_url+ 'api/v1/covid/_get_historical_data',
         type: 'GET',
         dataType: 'JSON',
         data: {country:country}
@@ -309,7 +309,7 @@ function closeCasesChart(){
 
 function getLatestNews(){
     $.ajax({
-        url: base_url+'api/v1/covid/latest-news',
+        url: base_url+'api/v1/covid/_get_latest_news',
         type: 'GET',
         dataType: 'JSON',
         data: {country:country}
@@ -328,7 +328,7 @@ function getLatestNews(){
 // webScrape()
 function webScrape(){
     $.ajax({
-        url: base_url+'api/v1/covid/web-scrape',
+        url: base_url+'api/v1/covid/_web_scrape',
         type: 'GET',
         dataType: 'JSON',
     })
@@ -402,7 +402,7 @@ function checkTime(i) {
 }
 function saveSubscriptionEmail(email_address){
     $.ajax({
-        url: base_url+'api/v1/email/save',
+        url: base_url+'api/v1/email/_save',
         type: 'POST',
         data: {email_address:email_address}
     })

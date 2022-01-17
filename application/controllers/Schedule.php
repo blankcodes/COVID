@@ -11,6 +11,9 @@ class Schedule extends CI_Controller {
     public function getCasesDataNotify(){
         $this->Scheduler_model->getCasesDataNotify();
     }
+    public function testNotify(){ /*test notification data*/
+      $this->Scheduler_model->testNotify();
+  }
     public function showEmail(){ /* show email*/
 		$this->load->view('email/email_notify');
     }

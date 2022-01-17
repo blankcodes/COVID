@@ -9,7 +9,7 @@ class Scheduler_model extends CI_Model {
     public function getCasesDataNotify($country = 'philippines'){
         $url = 'https://corona.lmao.ninja/countries/'.$country;
         $data = json_decode(file_get_contents($url, false));
-        
+
         $dataCases = array(
             'country'=>$data->country,
             'cases'=>$data->cases,
@@ -17,23 +17,26 @@ class Scheduler_model extends CI_Model {
             'deaths'=>$data->deaths,
             'todayDeaths'=>$data->todayDeaths,
             'recovered'=>$data->recovered,
-            'activeCases'=> $data->cases - $data->recovered - $data->deaths,
         );
-        $notify['newCase'] = 'None so far :)';
+        
+        $notify['cases'] = $dataCases;
+        $notify['msg'] = 'none';
         if(isset($this->session->cases)){
-            if($data->cases > $this->session->cases){
-                $notify['newCase'] = 'New Confirmed Cases Added';
-                $this->notifyUsers($dataCases); /* send email for notification if there's new confirmed cases*/
+            $notify['msg'] = 'session';
+            if ($data->cases > $this->session->cases){
+                $notify['msg'] = 'new cases reported';
+                $notify['previousCase'] = $this->session->tempdata('cases');
+                $notify['casesReported'] = $data->cases - $this->session->cases;
+
+                 /* send email for notification if there's new confirmed cases*/
+                $this->notifyUsers($dataCases);
+                $this->session->; 
+                $this->session->set_userdata('cases', $data->cases); 
             }
         }
         else{
-            $this->session->set_tempdata($dataCases, 420);
+            $this->session->set_tempdata('cases', $data->cases); 
         }
-
-        // test cron
-        // $notify['newCase'] = 'Sending...';
-        // $this->notifyUsers($dataCases); /* send email for notification if there's new confirmed cases*/
-
         $this->output->set_content_type('application/json')->set_output(json_encode($notify));
     }
     public function notifyUsers($dataCases){
@@ -84,5 +87,31 @@ class Scheduler_model extends CI_Model {
             $this->sendEmailNotification($dataCases, $d['email_address']);
         }
     }
-    
+
+    public function testNotify(){
+        $url = 'https://kenkarlo.com/test/get-api-data';
+        $data = json_decode(file_get_contents($url, false));
+        
+        $dataCases = array(
+            'cases'=>$data->cases,
+            'recovered'=>$data->recovered,
+            'deaths'=>$data->deaths,
+        );
+        $notify['cases'] = $data;
+        $notify['msg'] = 'none';
+        if(isset($this->session->cases)){
+            $notify['msg'] = 'session';
+            $notify['previousCase'] = $this->session->tempdata('cases');
+            if ($data->cases > $this->session->cases){
+                $notify['msg'] = 'new cases reported';
+                $notify['casesReported'] = $data->cases - $this->session->cases;
+                $this->notifyUsers($dataCases); /* send email for notification if there's new confirmed cases*/
+            }
+        }
+        else{
+            $this->session->set_tempdata('cases', $data->cases, 420); /*420*/
+        }
+        $this->output->set_content_type('application/json')->set_output(json_encode($notify));
+        
+    }
 }

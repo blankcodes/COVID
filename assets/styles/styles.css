@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Mada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 body {
     background:#000;
-    font-family: 'Font Awesome 5 Free';
+    font-family: 'Poppins', sans-serif;
     color: #7e86a1;
 }
 a{
@@ -161,12 +161,12 @@ a:hover{
     margin-left: -10px;
 }
 .element-info{
-    font-size: 23pt;
+    font-size: 20pt;
     font-weight: 600;
 }
 .element-info-right{
-    font-size: 24pt;
-    font-weight: 500;
+    font-size: 20pt;
+    font-weight: 600;
     position: absolute;
     right: 39px;
     top: 25px;
@@ -213,6 +213,12 @@ a:hover{
 }
 .font-md{
     font-size: 12pt;
+}
+.font-9{
+    font-size: 9pt; 
+}
+.font-10{
+    font-size: 10pt; 
 }
 .font-11{
     font-size: 11pt; 

@@ -10,35 +10,40 @@ class Api_model extends CI_Model {
         
         $dataInfo = array(
             'country'=>$data->country,
-            'cases'=>$data->cases,
-            'todayCases'=>$data->todayCases,
-            'deaths'=>$data->deaths,
-            'todayDeaths'=>$data->todayDeaths,
-            'recovered'=>$data->recovered,
-            'critical'=>$data->critical,
-            'activeCases'=> $data->cases - $data->recovered - $data->deaths,
-            'closeCases'=> $data->recovered + $data->deaths,
-            'casesPerOneMillion'=>$data->casesPerOneMillion,
+            'cases'=>number_format($data->cases),
+            'todayCases'=>number_format($data->todayCases),
+            'deaths'=>number_format($data->deaths),
+            'todayDeaths'=>number_format($data->todayDeaths),
+            'recovered'=>number_format($data->recovered),
+            'critical'=>number_format($data->critical),
+            'activeCases'=> number_format($data->cases - $data->recovered - $data->deaths),
+            'closeCases'=> number_format($data->recovered + $data->deaths),
+            'casesPerOneMillion'=>number_format($data->casesPerOneMillion),
         );
         $closeCases = $data->recovered + $data->deaths;
         $activeCases = $data->cases - $data->recovered - $data->deaths;
-        $dataInfo['mildCases'] = $activeCases - $data->critical;
+        $mild_cases = $activeCases - $data->critical;
 
-        $dataInfo['mildCasesCasesPercent'] = round( $dataInfo['mildCases'] / $activeCases * 100, 2);
-        $dataInfo['criticalCasesCasesPercent'] = round( $data->critical / $activeCases * 100, 2);
+        $dataInfo['mildCasesCasesPercent'] =  round($mild_cases / $activeCases * 100, 2);
+        $dataInfo['criticalCasesCasesPercent'] =  round($data->critical / $activeCases * 100, 2);
 
-        $dataInfo['recoverCasesPercent'] = round( $data->recovered / $closeCases * 100, 2);
-        $dataInfo['deathsCasesPercent'] = round( $data->deaths / $closeCases * 100, 2);
+        $dataInfo['recoverCasesPercent'] =  round($data->recovered / $closeCases * 100, 2);
+        $dataInfo['deathsCasesPercent'] =  round($data->deaths / $closeCases * 100, 2);
 
-        $dataInfo['globalTotalCloseCases'] = $globalRecord->deaths +  $globalRecord->recovered;
-        $dataInfo['globalPercentRecovered'] = round($globalRecord->recovered / $dataInfo['globalTotalCloseCases'] * 100, 2);
-        $dataInfo['globalDeathsRecovered'] =  round($globalRecord->deaths / $dataInfo['globalTotalCloseCases'] * 100, 2);
+        $globalTotalCloseCases = round($globalRecord->deaths +  $globalRecord->recovered, 2);
+        $dataInfo['globalPercentRecovered'] = round($globalRecord->recovered / $globalTotalCloseCases * 100, 2);
+        $dataInfo['globalDeathsRecovered']  =  round($globalRecord->deaths / $globalTotalCloseCases * 100, 2);
         
+        $dataInfo['globalTotalCloseCases'] = number_format($globalTotalCloseCases);
+        $dataInfo['mildCases'] = number_format($mild_cases);
+        $dataInfo['totalGlobalCase'] = number_format($globalRecord->cases);
+        $dataInfo['totalGlobalRecoveredCase'] = number_format($globalRecord->recovered);
+        $dataInfo['totalGlobalDeathCase'] = number_format($globalRecord->deaths);
 
         $dataInfo['global'] = $globalRecord;
 
         // return $dataInfo;
-        $this->output->cache('15');
+        // $this->output->cache('15');
         $this->output->set_content_type('application/json')->set_output(json_encode($dataInfo));
 
     }
@@ -48,19 +53,19 @@ class Api_model extends CI_Model {
         
         $dataInfo = array(
             'country'=>$data->country,
-            'cases'=>$data->cases,
-            'todayCases'=>$data->todayCases,
-            'deaths'=>$data->deaths,
-            'todayDeaths'=>$data->todayDeaths,
-            'recovered'=>$data->recovered,
-            'critical'=>$data->critical,
-            'activeCases'=> $data->cases - $data->recovered - $data->deaths,
-            'closeCases'=> $data->recovered + $data->deaths,
-            'casesPerOneMillion'=>$data->casesPerOneMillion,
+            'cases'=>number_format($data->cases),
+            'todayCases'=>number_format($data->todayCases),
+            'deaths'=>number_format($data->deaths),
+            'todayDeaths'=>number_format($data->todayDeaths),
+            'recovered'=>number_format($data->recovered),
+            'critical'=>number_format($data->critical),
+            'activeCases'=> number_format($data->cases - $data->recovered - $data->deaths),
+            'closeCases'=> number_format($data->recovered + $data->deaths),
+            'casesPerOneMillion'=>number_format($data->casesPerOneMillion),
         );
 
         // return $dataInfo;
-        $this->output->cache('15');
+        // $this->output->cache('15');
         if ($dataInfo) {
             return $dataInfo;
         }
@@ -77,7 +82,7 @@ class Api_model extends CI_Model {
             $data = array(
                 'timeline'=>$data->timeline,
             );
-            $this->output->cache('15');
+            // $this->output->cache('15');
             $data['status'] = 'Connected';
         }
         $this->output->set_content_type('application/json')->set_output(json_encode($data));
@@ -102,7 +107,7 @@ class Api_model extends CI_Model {
             $feeds[$i]['url'] = (string) $item->link;
             $i++;
         }
-        $this->output->cache('15');
+        // $this->output->cache('15');
         $this->output->set_content_type('application/json')->set_output(json_encode($feeds));
         // echo json_encode($feeds);
     }

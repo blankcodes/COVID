@@ -190,7 +190,7 @@
 															<table class="table table-bordered table-striped email-div" style="font:normal 15px/24px Poppins, Helvetica, sans-serif;">
 																<tr style="padding-bottom: 5px; width: 100%; color: #000;">
 																	<td width="200">Confirmed Cases: </td>
-																	<td width="200" class="text-right"><span ><?=$cases?></span></td>
+																	<td width="200" class="text-right"><?=$cases?></td>
 																</tr>
 																<tr style="padding-bottom: 5px; width: 100%; color: #000;">
 																	<td width="200">Confirmed Cases Today: </td>
