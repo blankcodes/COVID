@@ -10,3 +10,5 @@ Default theme:
 * Dark mode
 
 Website: https://2019-ncov.kenkarlo.com
+
+New Website URL: https://covid-updates.kenkarlo.com
