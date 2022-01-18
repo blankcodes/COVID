@@ -34,6 +34,10 @@ SOFTWARE.
     <meta name="description" content="Track and monitor COVID-19 Updates in the Philippines: Confirmed Cases and Deaths">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#000" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="COVID Updates">
 
     <!-- Open Graph data -->
     <meta property="fb:app_id" content="576747789395855" />
@@ -45,18 +49,19 @@ SOFTWARE.
 
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@kensdigest>">
-    <meta name="twitter:creator" content="@kensdigest">
+    <meta name="twitter:site" content="@bykenkarlo>">
+    <meta name="twitter:creator" content="@bykenkarlo">
     <meta name="twitter:title" content="Philippines COVID-19 Updates: Confirmed Cases and Deaths">
     <meta name="twitter:description" content="Track and monitor COVID-19 Updates in the Philippines: Confirmed Cases and Deaths">
     <meta name="twitter:image" content="<?=base_url()?>assets/img/cover-featured.jpg">
 
-    <!-- Plugin Links -->
+    <!-- Links -->
+    <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="<?=base_url('assets/img/logo.png')?>">
     <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="<?=base_url('assets/img/logo.png')?>">
     <link rel="stylesheet" type="text/css" href="<?=base_url('assets/bootstrap4/bootstrap.min.css')?>">
     <link rel="stylesheet" href="<?=base_url('assets/styles/styles.css')?>">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -97,7 +102,7 @@ SOFTWARE.
                         </div>
 
                         <div class="icons text-warning badge-light-warning icon-badge">
-                            <i class="fas fa-user-friends"></i>
+                            <i class="uil uil-users-alt "></i>
                         </div>
                     </div>
                 </div>
@@ -116,7 +121,7 @@ SOFTWARE.
                             </span>
                         </div>
                         <div class="icons text-success badge-light-success icon-badge">
-                            <i class="fas fa-stethoscope"></i>
+                            <i class="uil uil-heart-medical"></i>
                         </div>
                     </div>
                 </div>
@@ -135,7 +140,7 @@ SOFTWARE.
                             </span>
                         </div>
                         <div class="icons text-danger badge-light-danger icon-badge">
-                            <i class="fas fa-skull"></i>
+                            <i class="uil uil-dizzy-meh "></i>
                         </div>
                     </div>
                 </div>
@@ -149,7 +154,7 @@ SOFTWARE.
                             <div class="element-column-wrap">
                                 <div>
                                     <div class="title">
-                                        Global  Cases <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="Global record of confirmed cases"><i class="fas fa-question-circle font-sm"></i></span>
+                                        Global  Cases <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="Global record of confirmed cases"><i class="uil uil-question-circle"></i></span>
                                     </div>
                                     <div class="element-info-right" id="global_confirmed_case">
                                         0
@@ -200,7 +205,7 @@ SOFTWARE.
 
                                     <div class="col-lg-12 margin-top-20 text-center">
                                         <div class="title">
-                                            Global Closed Cases <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="Global record of Closed cases which had on outcome (recovered and deaths)"><i class="fas fa-question-circle font-sm"></i></span>
+                                            Global Closed Cases <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="Global record of Closed cases which had on outcome (recovered and deaths)"><i class="uil uil-question-circle"></i></span>
                                         </div>
                                         <div class="element-info" id="global_closed_cases">
                                             0
@@ -224,8 +229,8 @@ SOFTWARE.
                                         <div class="___preload-data"></div>
                                     </div> 
                                     <div id="chart-btn-wrapper">
-                                        <button data-toggle="tooltip" data-placement="top" title="Confirmed Cases Chart" class="btn btn-dark btn-sm" id="number_cases_stat"><i class="fas fa-users"></i></button>
-                                        <button data-toggle="tooltip" data-placement="top" title="Deaths Cases Chart" class="btn btn-dark btn-sm" id="number_death_stat"><i class="fas fa-skull"></i></button>
+                                        <button data-toggle="tooltip" data-placement="top" title="Confirmed Cases Chart" class="btn btn-dark btn-sm" id="number_cases_stat"><i class="uil uil-users-alt"></i></button>
+                                        <button data-toggle="tooltip" data-placement="top" title="Deaths Cases Chart" class="btn btn-dark btn-sm" id="number_death_stat"><i class="uil uil-dizzy-meh "></i></button>
                                     </div>
                                 </div>
                                 <div class="preload-data margin-top-20" id="preload_data" hidden="hidden">
@@ -250,7 +255,7 @@ SOFTWARE.
                             <div class="element-column-wrap">
                                 <div>
                                     <div class="title">
-                                        Active Cases <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="Currently infected patients which had on outcome"><i class="fas fa-question-circle font-sm"></i></span>
+                                        Active Cases <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="Currently infected patients which had on outcome"><i class="uil uil-question-circle"></i></span>
                                     </div>
                                     <div class="element-info-right" id="_active_cases">
                                         0
@@ -303,7 +308,7 @@ SOFTWARE.
                             <div class="element-column-wrap">
                                 <div>
                                     <div class="title">
-                                        Closed Cases <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="Closed cases which had on outcome"><i class="fas fa-question-circle font-sm"></i></span>
+                                        Closed Cases <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="Closed cases which had on outcome"><i class="uil uil-question-circle"></i></span>
                                     </div>
                                     <div class="element-info-right" id="closed_cases">
                                         0
@@ -391,7 +396,7 @@ SOFTWARE.
                         <div class="col-lg-12">
                             <div class="element-column-wrap">
                                 <div class="title margin-bottom-10">
-                                    Latest News <i class="fas fa-newspaper"></i> <i class="cursor-pointer news-pointer" ><span class="font-xs">Source: News.google.com</span> <i data-toggle="tooltip" data-placement="top" title="Latest News related to COVID-19" class="fas fa-question-circle font-xs"></i> </i>
+                                    Latest News <i class="fas fa-newspaper"></i> <i class="cursor-pointer news-pointer" ><span class="font-xs">Source: News.google.com</span> <i data-toggle="tooltip" data-placement="top" title="Latest News related to COVID-19" class="uil uil-question-circle"></i> </i>
                                 </div>
                                 <div id="latest-news-wrapper" >
                                     <div class="preload-data">
@@ -417,14 +422,13 @@ SOFTWARE.
                     
                     <div class="element-column-wrap">
                         <div class="title margin-bottom-20 ">
-                            Share <i class="fas fa-share-alt font-sm"></i>
+                            Share <i class="uil uil-share-alt font-sm"></i>
                         </div>
                             <div class="btn-share-wrapper">
-                            <input type="hidden" id="website_url" value="<?=base_url();?>" />
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=<?=base_url();?>" target="_blank" rel="noopener" class="btn btn-circle btn-dark btn-share-icon"><i class="fab fa-facebook-f"></i></a>
-                            <a id="mobile-view" href="fb-messenger://share/?link=<?=base_url();?>&app_id=576747789395855" target="_blank" rel="noopener" class="btn btn-circle btn-dark btn-share-icon"><i class="fab fa-facebook-messenger"></i></a>
-                            <a href="https://twitter.com/intent/tweet?original_referer=<?=base_url();?>&text=Track and monitor COVID-19 Updates in the Philippines&url=<?=base_url()?>&hashtags=COVID19,COVIDUpdates" target="_blank" rel="noopener"  class="btn btn-circle btn-dark btn-share-icon"><i class="fab fa-twitter"></i></a>
-                       </div>                      
+                                <a  href="https://www.facebook.com/sharer/sharer.php?u=<?=base_url();?>" target="_blank" rel="noopener" class="btn btn-circle btn-dark btn-share-icon"><i class="uil uil-facebook-f"></i></a>
+                                <a id="mobile-view" href="fb-messenger://share/?link=<?=base_url();?>&app_id=576747789395855" target="_blank" rel="noopener" class="btn btn-circle btn-dark btn-share-icon"><i class="uil uil-facebook-messenger"></i></a>
+                                <a href="https://twitter.com/intent/tweet?original_referer=<?=base_url();?>&text=Track and monitor COVID-19 Updates in the Philippines&url=<?=base_url()?>&hashtags=COVID19,COVIDUpdates" target="_blank" rel="noopener"  class="btn btn-circle btn-dark btn-share-icon"><i class="uil uil-twitter"></i></a>
+                           </div>                      
                     </div>
                 </div>
             </div>

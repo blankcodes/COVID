@@ -141,7 +141,7 @@ a:hover{
 }
 .element-row-main .icon-badge{
     border-radius: 100%;
-    padding: 15px 20px;
+    padding: 8px 15px;
     position: absolute;
 }
 .element-column-wrap{
@@ -161,11 +161,11 @@ a:hover{
     margin-left: -10px;
 }
 .element-info{
-    font-size: 20pt;
+    font-size: 18pt;
     font-weight: 600;
 }
 .element-info-right{
-    font-size: 20pt;
+    font-size: 18pt;
     font-weight: 600;
     position: absolute;
     right: 39px;
@@ -269,10 +269,10 @@ background-color: transparent !important;
         width: 20px;
     }
     #mobile-view {
-        display: block;
+        display: block !important;
     }
     #web-view {
-        display: none;
+        display: none !important;
     }
     .font-fontawesome {
         font-family: 'Font Awesome 5 Free';
@@ -302,10 +302,10 @@ background-color: transparent !important;
         width: 30px;
     }
     #mobile-view {
-        display: none;
+        display: none !important;
     }
     #web-view {
-        display: block;
+        display: block !important;
     }
     .current-time-date{
         position: absolute;
@@ -495,16 +495,16 @@ background-color: transparent !important;
     border-radius:100% !important;
 }
 .btn-share-icon{
-    height: 37px;
-    width: 37px;
+    height: 40px;
+    width: 40px;
+    padding:  5px 0px 5px 0px;
+    font-size: 14pt;
 }
 .btn-share-wrapper a{
-    display: inline-block !important;
+    display: inline-block !important; 
     margin: 0px 1px;
 }
-.btn-share-wrapper{
-    display: inline !important;
-}
+
 .news-pointer{
     position: absolute;
     right: 40px;

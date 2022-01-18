@@ -1,6 +1,6 @@
     <div id="loader" class="loader-div" hidden="hidden" data-backdrop="static" data-keyboard="false">
         <div class="loader-wrapper">
-            <img src="<?=base_url('assets/img/loader.svg')?>" width="120" heigth="120">
+            <img src="<?=base_url('assets/img/loader.gif')?>" width="120" heigth="120">
         </div>
     </div>
     
@@ -63,6 +63,7 @@
     <script src="<?=base_url('assets/js/chart.min.js')?>"></script>
     <script src="<?=base_url('assets/js/sweetalert.min.js')?>"></script>
     <script src="<?=base_url('assets/js/historical_data.js')?>"></script>
+    <script src="<?=base_url('assets/js/_app.js')?>"></script>
 
 </body>
 </html>
